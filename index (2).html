@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verdant Financial | Smarter Banking, Mortgages & Lending</title>
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#00A859',
+              greenDark: '#008748',
+              greenHover: '#00914D',
+              mint: '#EBF8F2',
+              mintDeep: '#D5F1E3',
+              navy: '#0F2537',
+              navyLight: '#1B3A54',
+              slate: '#4A5D6E',
+              grayBg: '#F5F7FA',
+              border: '#E2E8F0'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'card': '0 4px 20px -2px rgba(15, 37, 55, 0.06)',
+            'card-hover': '0 14px 30px -6px rgba(15, 37, 55, 0.12)',
+            'floating': '0 20px 40px -10px rgba(15, 37, 55, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #0F2537;
+      background-color: #FFFFFF;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    /* Custom subtle range slider */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: #D5F1E3;
+      height: 8px;
+      border-radius: 999px;
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #00A859;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 2px 8px rgba(0, 168, 89, 0.45);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.12);
+    }
+    /* View transition animation */
+    .view-section {
+      animation: fadeSlideIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Map pulse dot */
+    @keyframes pulseRing {
+      0% { transform: scale(0.85); opacity: 0.85; }
+      70% { transform: scale(1.85); opacity: 0; }
+      100% { transform: scale(1.85); opacity: 0; }
+    }
+    .pin-pulse {
+      animation: pulseRing 2s infinite;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-mint selection:text-brand-navy">
+
+  <!-- Top Security & Demo Notice Banner -->
+  <div class="bg-brand-navy text-white text-xs py-2 px-4 border-b border-white/10">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-brand-green/20 text-brand-green">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        </span>
+        <span class="text-slate-200">256-Bit TLS Encrypted Platform • Member FDIC Banking Partners • <strong class="text-white font-semibold">Illustrative Rates Shown</strong></span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-slate-300">
+        <button onclick="navigateTo('locations')" class="hover:text-white transition flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-brand-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Find a Branch or ATM
+        </button>
+        <span>|</span>
+        <button onclick="navigateTo('support')" class="hover:text-white transition">24/7 Support: 1-800-555-0194</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Primary Navigation Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-border transition-shadow" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Brand Logo -->
+        <button onclick="navigateTo('home')" class="flex items-center gap-3 text-left group focus:outline-none">
+          <div class="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center shadow-sm group-hover:bg-brand-navyLight transition">
+            <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none">
+              <path d="M6 9L14.5 24L20 14.5" stroke="#00A859" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18.5 11.5L25.5 8.5L23.5 16" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-display font-extrabold text-xl tracking-tight text-brand-navy block leading-none">Verdant<span class="text-brand-green">.</span></span>
+            <span class="text-[11px] font-semibold uppercase tracking-widest text-brand-slate block mt-0.5">Financial</span>
+          </div>
+        </button>
+
+        <!-- Desktop Nav Links -->
+        <nav class="hidden lg:flex items-center gap-1" aria-label="Primary Navigation">
+          <button onclick="navigateTo('banking')" data-nav="banking" class="nav-link px-3.5 py-2 rounded-lg text-sm font-semibold text-brand-navy hover:bg-brand-mint hover:text-brand-greenDark transition">Banking</button>
+          <button onclick="navigateTo('mortgages')" data-nav="mortgages" class="nav-link px-3.5 py-2 rounded-lg text-sm font-semibold text-brand-navy hover:bg-brand-mint hover:text-brand-greenDark transition">Mortgages</button>
+          <button onclick="navigateTo('lending')" data-nav="lending" class="nav-link px-3.5 py-2 rounded-lg text-sm font-semibold text-brand-navy hover:bg-brand-mint hover:text-brand-greenDark transition">Personal Loans</button>
+          <button onclick="navigateTo('education')" data-nav="education" class="nav-link px-3.5 py-2 rounded-lg text-sm font-semibold text-brand-navy hover:bg-brand-mint hover:text-brand-greenDark transition">Financial Education</button>
+          <button onclick="navigateTo('locations')" data-nav="locations" class="nav-link px-3.5 py-2 rounded-lg text-sm font-semibold text-brand-navy hover:bg-brand-mint hover:text-brand-greenDark transition">Locations</button>
+          <button onclick="navigateTo('support')" data-nav="support" class="nav-link px-3.5 py-2 rounded-lg text-sm font-semibold text-brand-navy hover:bg-brand-mint hover:text-brand-greenDark transition">Support</button>
+        </nav>
+
+        <!-- Desktop Auth / Action Buttons -->
+        <div class="hidden md:flex items-center gap-3">
+          <button id="header-login-btn" onclick="openLoginModal()" class="px-4 py-2.5 rounded-xl text-sm font-semibold text-brand-navy hover:bg-brand-grayBg border border-brand-border transition">
+            Log In
+          </button>
+          <button onclick="navigateTo('onboarding')" class="px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-brand-green hover:bg-brand-greenDark shadow-sm hover:shadow transition flex items-center gap-1.5">
+            <span>Get Started</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-xl text-brand-navy hover:bg-brand-grayBg border border-brand-border">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Responsive Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-brand-border px-4 pt-3 pb-6 space-y-2 shadow-xl">
+      <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl font-semibold text-brand-navy hover:bg-brand-mint">Home</button>
+      <button onclick="navigateTo('banking'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl font-semibold text-brand-navy hover:bg-brand-mint">Banking & Accounts</button>
+      <button onclick="navigateTo('mortgages'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl font-semibold text-brand-navy hover:bg-brand-mint">Mortgage Solutions</button>
+      <button onclick="navigateTo('lending'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl font-semibold text-brand-navy hover:bg-brand-mint">Personal Loans & Lending</button>
+      <button onclick="navigateTo('education'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl font-semibold text-brand-navy hover:bg-brand-mint">Financial Education</button>
+      <button onclick="navigateTo('locations'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl font-semibold text-brand-navy hover:bg-brand-mint">Branch & ATM Locator</button>
+      <button onclick="navigateTo('support'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl font-semibold text-brand-navy hover:bg-brand-mint">Customer Support</button>
+      <div class="pt-3 border-t border-brand-border grid grid-cols-2 gap-3">
+        <button onclick="toggleMobileMenu(); openLoginModal()" class="w-full py-3 rounded-xl font-semibold text-brand-navy border border-brand-border text-center">Log In</button>
+        <button onclick="toggleMobileMenu(); navigateTo('onboarding')" class="w-full py-3 rounded-xl font-semibold text-white bg-brand-green text-center">Get Started</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dynamic Application Container -->
+  <main id="app-root" class="min-h-[75vh]">
+    <!-- Views are rendered dynamically via JavaScript for instant SPA navigation -->
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="bg-brand-navy text-white pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <!-- Brand Column -->
+        <div class="lg:col-span-2 space-y-5">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+              <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none">
+                <path d="M6 9L14.5 24L20 14.5" stroke="#00A859" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18.5 11.5L25.5 8.5L23.5 16" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <span class="font-display font-extrabold text-xl tracking-tight text-white block leading-none">Verdant<span class="text-brand-green">.</span></span>
+              <span class="text-[11px] font-semibold uppercase tracking-widest text-slate-400 block mt-0.5">Financial Services</span>
+            </div>
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed max-w-md">
+            Empowering everyday households and homebuyers with transparent digital banking, personalized mortgage comparisons, and clear financial education—built on bank-grade security.
+          </p>
+          <div class="flex items-center gap-3 pt-1">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-medium text-emerald-300">
+              <svg class="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              FDIC Insured Partner Network
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-medium text-slate-200">
+              Equal Housing Lender
+            </span>
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div>
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-white mb-4">Products</h3>
+          <ul class="space-y-2.5 text-sm text-slate-300">
+            <li><button onclick="navigateTo('banking')" class="hover:text-brand-green transition">High-Yield Checking & Savings</button></li>
+            <li><button onclick="navigateTo('mortgages')" class="hover:text-brand-green transition">Fixed & Adjustable Mortgages</button></li>
+            <li><button onclick="navigateTo('mortgages')" class="hover:text-brand-green transition">Home Refinancing</button></li>
+            <li><button onclick="navigateTo('lending')" class="hover:text-brand-green transition">Personal & Consolidation Loans</button></li>
+            <li><button onclick="navigateTo('lending')" class="hover:text-brand-green transition">Home Equity Lines (HELOC)</button></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-white mb-4">Resources</h3>
+          <ul class="space-y-2.5 text-sm text-slate-300">
+            <li><button onclick="navigateTo('education')" class="hover:text-brand-green transition">Financial Education Hub</button></li>
+            <li><button onclick="navigateTo('mortgages')" class="hover:text-brand-green transition">Mortgage Payment Calculator</button></li>
+            <li><button onclick="navigateTo('locations')" class="hover:text-brand-green transition">Branch & ATM Locator</button></li>
+            <li><button onclick="navigateTo('onboarding')" class="hover:text-brand-green transition">Open an Account Online</button></li>
+            <li><button onclick="navigateTo('support')" class="hover:text-brand-green transition">FAQs & Help Center</button></li>
+          </ul>
+        </div>
+
+        <!-- Security & Legal -->
+        <div>
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-white mb-4">Trust & Legal</h3>
+          <ul class="space-y-2.5 text-sm text-slate-300">
+            <li><button onclick="showInfoModal('Privacy Policy', 'Verdant Financial protects your personal data using 256-bit encryption, strict zero-sale data commitments, and multi-factor authentication. All figures shown on this platform are illustrative demonstrations.')" class="hover:text-brand-green transition text-left">Privacy Policy</button></li>
+            <li><button onclick="showInfoModal('Security Center', 'Your security is backed by continuous fraud monitoring, biometric login readiness, and zero-liability protection on unauthorized debit transactions.')" class="hover:text-brand-green transition text-left">Security Center</button></li>
+            <li><button onclick="showInfoModal('Disclosures & Illustrative Rates', 'All interest rates, APRs, APYs, monthly payment estimates, and branch listings on this website are illustrative placeholders created for demonstration purposes and do not constitute an actual credit offer.')" class="hover:text-brand-green transition text-left">Rate Disclosures</button></li>
+            <li><button onclick="navigateTo('support')" class="hover:text-brand-green transition">Contact Member Support</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright & Disclaimer -->
+      <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-slate-400">
+        <p>© 2026 Verdant Financial Services, Inc. All rights reserved. NMLS #000000 (Illustrative Demonstration Platform).</p>
+        <div class="flex items-center gap-4">
+          <span class="text-slate-400">All rates & figures are illustrative examples only.</span>
+          <div class="flex items-center gap-3">
+            <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" aria-label="Back to top" class="p-2 rounded-lg bg-white/5 hover:bg-white/15 text-white transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Login Modal -->
+  <div id="login-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-brand-navy/60 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-7 sm:p-8 shadow-2xl border border-brand-border relative view-section">
+      <button onclick="closeLoginModal()" aria-label="Close modal" class="absolute top-5 right-5 p-2 rounded-full text-brand-slate hover:bg-brand-grayBg hover:text-brand-navy transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div class="flex items-center gap-2.5 mb-5">
+        <div class="w-9 h-9 rounded-xl bg-brand-mint text-brand-green flex items-center justify-center">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        </div>
+        <div>
+          <h2 class="font-display font-bold text-xl text-brand-navy">Secure Member Sign In</h2>
+          <p class="text-xs text-brand-slate">256-bit encrypted digital banking portal</p>
+        </div>
+      </div>
+
+      <form onsubmit="handleDemoLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-brand-navy mb-1.5">Email or Member ID</label>
+          <input type="email" id="login-email" required value="shawn.stotler@example.com" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-sm" />
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-brand-navy">Password</label>
+            <button type="button" onclick="showToast('Simulated password reset link sent to your email.')" class="text-xs font-semibold text-brand-green hover:underline">Forgot password?</button>
+          </div>
+          <input type="password" id="login-password" required value="••••••••••••" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-sm" />
+        </div>
+        <div class="flex items-center justify-between text-xs text-brand-slate">
+          <label class="inline-flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" checked class="rounded text-brand-green focus:ring-brand-green" />
+            <span>Remember this device</span>
+          </label>
+          <span class="text-brand-green font-medium">Demo Sandbox Ready</span>
+        </div>
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm shadow-sm transition">
+          Sign In to Dashboard
+        </button>
+      </form>
+
+      <div class="mt-6 pt-5 border-t border-brand-border text-center">
+        <p class="text-xs text-brand-slate">New to Verdant Financial?
+          <button onclick="closeLoginModal(); navigateTo('onboarding')" class="font-semibold text-brand-green hover:underline ml-1">Open an account in 3 minutes →</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Generic Article / Info / Comparison Modal -->
+  <div id="info-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-brand-navy/60 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[88vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-brand-border relative view-section">
+      <button onclick="closeInfoModal()" aria-label="Close modal" class="sticky top-0 float-right p-2 rounded-full bg-brand-grayBg text-brand-slate hover:text-brand-navy transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div id="info-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast-banner" class="fixed bottom-5 right-5 z-50 hidden items-center gap-3 bg-brand-navy text-white px-5 py-3.5 rounded-2xl shadow-floating border border-white/10 text-sm font-medium max-w-sm">
+    <span class="w-6 h-6 rounded-full bg-brand-green flex items-center justify-center shrink-0">
+      <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+    </span>
+    <span id="toast-message">Action completed</span>
+  </div>
+
+  <!-- Application Logic & Data -->
+  <script>
+    // ==========================================
+    // 1. STATE & DATA STORE (Illustrative Data)
+    // ==========================================
+    const appState = {
+      currentView: 'home',
+      isLoggedIn: false,
+      userName: 'Shawn Stotler',
+      selectedComparisonIds: ['mort-30', 'mort-15', 'loan-pers'],
+      educationCategory: 'All',
+      educationSearch: '',
+      locationQuery: '',
+      locationFilter: 'All',
+      selectedLocationId: 1,
+      onboardingStep: 1,
+      onboardingData: {
+        productType: 'Verdant High-Yield Checking & Savings Bundle',
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        dob: '',
+        address: '',
+        cityStateZip: '',
+        employmentStatus: 'Full-Time Employed',
+        annualIncome: '$95,000',
+        idType: 'Driver’s License / State ID',
+        idVerified: false,
+        docUploaded: false,
+        docName: ''
+      }
+    };
+
+    // High-resolution lifestyle imagery with graceful fallbacks
+    const IMAGES = {
+      hero: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80',
+      mortgageFamily: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80',
+      bankingCouple: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80',
+      trustAdvisor: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=80',
+      edu1: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80',
+      edu2: 'https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&w=800&q=80',
+      edu3: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80',
+      edu4: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80'
+    };
+
+    const COMPARISON_PRODUCTS = [
+      {
+        id: 'mort-30',
+        category: 'Mortgage',
+        badge: 'Most Popular Home Loan',
+        name: '30-Year Fixed Mortgage',
+        rateLabel: 'Illustrative APR',
+        rate: '6.12%',
+        amountRange: '$100,000 – $1,500,000',
+        term: '30 Years (360 Months)',
+        eligibility: '620+ Credit Score • Min. 3% Down',
+        requirements: '2 yrs income history, W-2s/tax returns, property appraisal',
+        highlight: 'Predictable principal & interest payments for the life of your loan.'
+      },
+      {
+        id: 'mort-15',
+        category: 'Mortgage',
+        badge: 'Lowest Total Interest',
+        name: '15-Year Fixed Mortgage',
+        rateLabel: 'Illustrative APR',
+        rate: '5.48%',
+        amountRange: '$100,000 – $1,500,000',
+        term: '15 Years (180 Months)',
+        eligibility: '660+ Credit Score • Min. 5% Down',
+        requirements: 'Debt-to-income under 43%, verified income & asset statements',
+        highlight: 'Build home equity twice as fast with a lower illustrative fixed rate.'
+      },
+      {
+        id: 'loan-pers',
+        category: 'Personal Loan',
+        badge: 'Same-Day Funding Eligible',
+        name: 'Verdant Flex Personal Loan',
+        rateLabel: 'Illustrative APR',
+        rate: '7.99% – 14.49%',
+        amountRange: '$2,500 – $50,000',
+        term: '24 to 60 Months',
+        eligibility: '640+ Credit Score • U.S. Resident',
+        requirements: 'Government ID, proof of steady income, zero origination fees',
+        highlight: 'Fixed monthly payments with zero prepayment penalties.'
+      },
+      {
+        id: 'loan-heloc',
+        category: 'Home Financing',
+        badge: 'Flexible Credit Line',
+        name: 'Home Equity Line (HELOC)',
+        rateLabel: 'Illustrative Variable APR',
+        rate: '7.25%',
+        amountRange: '$15,000 – $250,000',
+        term: '10-Yr Draw / 20-Yr Repay',
+        eligibility: '680+ Credit Score • 15%+ Equity',
+        requirements: 'Current mortgage statement, automated home valuation',
+        highlight: 'Tap into your home’s equity for renovations or major milestones.'
+      }
+    ];
+
+    const EDUCATION_ARTICLES = [
+      {
+        id: 1,
+        category: 'Mortgages & Home',
+        readTime: '6 min read',
+        date: 'Updated Nov 2026',
+        title: 'First-Time Homebuyer Blueprint: How Much House Can You Comfortably Afford?',
+        excerpt: 'Understand the 28/36 debt-to-income rule, down payment assistance programs, and how rate locks protect your monthly budget.',
+        image: IMAGES.edu2,
+        content: `
+          <p class="text-brand-slate leading-relaxed mb-4">Buying your first home becomes dramatically simpler when you separate what a lender approves from what fits comfortably inside your monthly lifestyle budget.</p>
+          <h4 class="font-display font-bold text-lg text-brand-navy mb-2">1. The 28/36 Affordability Guideline</h4>
+          <p class="text-brand-slate leading-relaxed mb-4">Financial planners generally recommend keeping total housing expenses (principal, interest, property taxes, and homeowners insurance) at or below <strong>28% of gross monthly income</strong>, and total debt payments below <strong>36%</strong>.</p>
+          <h4 class="font-display font-bold text-lg text-brand-navy mb-2">2. Strengthening Your Pre-Approval Profile</h4>
+          <ul class="list-disc pl-5 text-brand-slate space-y-2 mb-4">
+            <li>Avoid opening new credit cards 90 days before applying for a mortgage.</li>
+            <li>Keep credit card utilization below 20% to maximize credit score tiers.</li>
+            <li>Gather two years of W-2s and two months of liquid bank statements early.</li>
+          </ul>
+          <div class="p-4 rounded-2xl bg-brand-mint text-brand-navy text-sm font-medium">
+            Tip: Try our interactive Mortgage Estimator on the Mortgages page to test different down payment scenarios.
+          </div>
+        `
+      },
+      {
+        id: 2,
+        category: 'Credit & Loans',
+        readTime: '5 min read',
+        date: 'Updated Nov 2026',
+        title: 'Debt Consolidation vs. Balance Transfers: Choosing the Smarter Payoff Path',
+        excerpt: 'Compare fixed-rate personal loans against promotional APR cards to eliminate high-interest balances faster and boost credit health.',
+        image: IMAGES.edu1,
+        content: `
+          <p class="text-brand-slate leading-relaxed mb-4">Carrying high-interest revolving debt can quietly stall your savings goals. Structuring a clear payoff timeline puts you back in control.</p>
+          <h4 class="font-display font-bold text-lg text-brand-navy mb-2">When a Fixed Personal Loan Wins</h4>
+          <p class="text-brand-slate leading-relaxed mb-4">A fixed-rate personal loan consolidates multiple variable credit card balances into one predictable monthly payment with a firm payoff date—often lowering your credit utilization ratio immediately.</p>
+          <h4 class="font-display font-bold text-lg text-brand-navy mb-2">Key Factors to Compare</h4>
+          <ul class="list-disc pl-5 text-brand-slate space-y-2">
+            <li><strong>Total APR vs. Intro APR:</strong> Ensure you can pay off a balance transfer before the promotional window expires.</li>
+            <li><strong>Origination & Prepayment Fees:</strong> Look for lenders with $0 origination fees and zero penalties for paying early.</li>
+          </ul>
+        `
+      },
+      {
+        id: 3,
+        category: 'Banking & Savings',
+        readTime: '4 min read',
+        date: 'Updated Oct 2026',
+        title: 'Building a 6-Month Emergency Fund Using Automated High-Yield Buckets',
+        excerpt: 'Learn how separating everyday checking from high-yield savings buckets compounds interest while preventing accidental overspending.',
+        image: IMAGES.edu3,
+        content: `
+          <p class="text-brand-slate leading-relaxed mb-4">An emergency cushion transforms unexpected car repairs or medical bills from financial crises into minor inconveniences.</p>
+          <h4 class="font-display font-bold text-lg text-brand-navy mb-2">Automate on Payday</h4>
+          <p class="text-brand-slate leading-relaxed mb-4">Routing just 10% of each direct deposit automatically into a high-yield savings account removes willpower from the equation and builds momentum effortlessly.</p>
+        `
+      },
+      {
+        id: 4,
+        category: 'Financial Planning',
+        readTime: '7 min read',
+        date: 'Updated Oct 2026',
+        title: 'Understanding Your Credit Score Factors: Payment History, Utilization & Age',
+        excerpt: 'A visual breakdown of the five pillars driving your credit profile and practical 60-day habits that improve lending eligibility.',
+        image: IMAGES.edu4,
+        content: `
+          <p class="text-brand-slate leading-relaxed mb-4">Your credit score acts as your financial passport—influencing mortgage rates, auto loans, and even insurance premiums.</p>
+          <h4 class="font-display font-bold text-lg text-brand-navy mb-2">The Two Highest-Impact Levers</h4>
+          <p class="text-brand-slate leading-relaxed">Payment history (35%) and credit utilization (30%) account for nearly two-thirds of your score. Setting up autopay for at least the minimum payment guarantees zero missed due dates.</p>
+        `
+      }
+    ];
+
+    const BRANCH_LOCATIONS = [
+      {
+        id: 1,
+        type: 'Full-Service Branch + ATM',
+        name: 'Verdant Financial — Downtown Flagship',
+        address: '450 Market Street, Suite 100',
+        cityStateZip: 'San Francisco, CA 94105',
+        zip: '94105',
+        phone: '(415) 555-0142',
+        hours: 'Mon–Fri: 8:30 AM – 6:00 PM • Sat: 9:00 AM – 2:00 PM',
+        services: ['Mortgage Advisors', '24/7 Smart ATM', 'Notary Service', 'Instant Debit Card'],
+        distance: '0.8 mi',
+        pinX: 28,
+        pinY: 42
+      },
+      {
+        id: 2,
+        type: '24/7 Drive-Up ATM & Express Kiosk',
+        name: 'Verdant Express — Midtown Plaza',
+        address: '1120 Avenue of the Americas',
+        cityStateZip: 'New York, NY 10036',
+        zip: '10036',
+        phone: '(212) 555-0188',
+        hours: 'ATM & Video Teller: Open 24/7',
+        services: ['24/7 Smart ATM', 'Cash & Check Deposit', 'Live Video Banker'],
+        distance: '1.4 mi',
+        pinX: 74,
+        pinY: 34
+      },
+      {
+        id: 3,
+        type: 'Full-Service Branch + Mortgage Center',
+        name: 'Verdant Home & Banking Center — Austin',
+        address: '301 Congress Avenue',
+        cityStateZip: 'Austin, TX 78701',
+        zip: '78701',
+        phone: '(512) 555-0167',
+        hours: 'Mon–Fri: 9:00 AM – 5:30 PM • Sat: 9:00 AM – 1:00 PM',
+        services: ['Mortgage Advisors', 'HELOC Specialists', '24/7 Smart ATM', 'Safe Deposit Boxes'],
+        distance: '2.1 mi',
+        pinX: 48,
+        pinY: 68
+      },
+      {
+        id: 4,
+        type: 'Full-Service Branch + ATM',
+        name: 'Verdant Financial — Lincoln Park Hub',
+        address: '2340 N Clark Street',
+        cityStateZip: 'Chicago, IL 60614',
+        zip: '60614',
+        phone: '(312) 555-0193',
+        hours: 'Mon–Fri: 8:30 AM – 5:30 PM • Sat: 9:00 AM – 2:00 PM',
+        services: ['Personal Bankers', '24/7 Smart ATM', 'Wealth Planning'],
+        distance: '3.0 mi',
+        pinX: 60,
+        pinY: 28
+      }
+    ];
+
+    const FAQS = [
+      {
+        q: 'Are the interest rates, APRs, and APYs displayed on Verdant Financial real offers?',
+        a: 'All interest rates, monthly payment calculations, and product terms displayed on this website are illustrative placeholders provided for educational and demonstration purposes. Actual rates depend on creditworthiness, loan-to-value ratio, and market conditions.'
+      },
+      {
+        q: 'How are my deposits protected with Verdant Financial?',
+        a: 'Funds held in Verdant Checking, High-Yield Savings, and CD accounts are eligible for FDIC pass-through insurance up to $250,000 per depositor, per ownership category, through our partner banking institutions.'
+      },
+      {
+        q: 'Does checking my mortgage or personal loan rate affect my credit score?',
+        a: 'Checking your personalized pre-qualification options uses a soft credit inquiry, which has zero impact on your credit score. A hard inquiry only occurs if you formally submit a full credit application.'
+      },
+      {
+        q: 'How long does online account onboarding take?',
+        a: 'Most applicants complete our 5-step digital onboarding in under 3 minutes. You can test the complete workflow right now using the "Get Started" button and our one-click demo data filler.'
+      },
+      {
+        q: 'Where can I deposit cash or use fee-free ATMs?',
+        a: 'Verdant members enjoy fee-free access to over 40,000 partner ATMs nationwide plus instant cash and check deposits at all Verdant Smart ATMs. Use our Branch & ATM Locator to search by ZIP code or city.'
+      }
+    ];
+
+    // ==========================================
+    // 2. NAVIGATION & UI HELPERS
+    // ==========================================
+    function navigateTo(view) {
+      appState.currentView = view;
+      renderCurrentView();
+      updateActiveNavLinks();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateActiveNavLinks() {
+      document.querySelectorAll('.nav-link').forEach(btn => {
+        const target = btn.getAttribute('data-nav');
+        if (target === appState.currentView) {
+          btn.classList.add('bg-brand-mint', 'text-brand-greenDark');
+        } else {
+          btn.classList.remove('bg-brand-mint', 'text-brand-greenDark');
+        }
+      });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('menu-icon-open');
+      const closeIcon = document.getElementById('menu-icon-close');
+      menu.classList.toggle('hidden');
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    }
+
+    function showToast(message) {
+      const banner = document.getElementById('toast-banner');
+      const msgEl = document.getElementById('toast-message');
+      msgEl.textContent = message;
+      banner.classList.remove('hidden');
+      banner.classList.add('flex');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        banner.classList.add('hidden');
+        banner.classList.remove('flex');
+      }, 3600);
+    }
+
+    function openLoginModal() {
+      const modal = document.getElementById('login-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLoginModal() {
+      const modal = document.getElementById('login-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function handleDemoLogin(e) {
+      e.preventDefault();
+      appState.isLoggedIn = true;
+      closeLoginModal();
+      const loginBtn = document.getElementById('header-login-btn');
+      if (loginBtn) {
+        loginBtn.innerHTML = `<span class="inline-flex items-center gap-1.5 text-brand-greenDark"><span class="w-2 h-2 rounded-full bg-brand-green"></span>${appState.userName}</span>`;
+      }
+      showToast(`Welcome back, ${appState.userName}! Signed in to demo banking.`);
+      if (appState.currentView === 'home') {
+        renderCurrentView();
+      }
+    }
+
+    function showInfoModal(title, bodyHtml) {
+      const modal = document.getElementById('info-modal');
+      const content = document.getElementById('info-modal-content');
+      content.innerHTML = `
+        <h3 class="font-display font-bold text-2xl text-brand-navy mb-4 pr-8">${title}</h3>
+        <div class="text-sm text-brand-slate leading-relaxed space-y-3">${bodyHtml}</div>
+      `;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeInfoModal() {
+      const modal = document.getElementById('info-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function openArticleModal(articleId) {
+      const article = EDUCATION_ARTICLES.find(a => a.id === articleId);
+      if (!article) return;
+      showInfoModal(article.title, `
+        <div class="flex items-center gap-3 text-xs font-semibold text-brand-green uppercase tracking-wider mb-3">
+          <span class="px-2.5 py-1 rounded-full bg-brand-mint">${article.category}</span>
+          <span class="text-brand-slate">${article.readTime}</span>
+          <span class="text-brand-slate">• ${article.date}</span>
+        </div>
+        <img src="${article.image}" alt="${article.title}" onerror="this.src='https://placehold.co/800x400/EBF8F2/0F2537?text=Financial+Guide'" class="w-full h-56 object-cover rounded-2xl mb-5" />
+        ${article.content}
+      `);
+    }
+
+    // ==========================================
+    // 3. SHARED REUSABLE SECTION RENDERERS
+    // ==========================================
+    function renderComparisonSection(compact = false) {
+      const selected = COMPARISON_PRODUCTS.filter(p => appState.selectedComparisonIds.includes(p.id));
+      const activeList = selected.length > 0 ? selected : COMPARISON_PRODUCTS.slice(0, 3);
+
+      return `
+        <section class="py-16 sm:py-20 bg-brand-grayBg border-y border-brand-border" id="comparison-section">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+              <div>
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold uppercase tracking-wider mb-3">
+                  Transparent Side-by-Side Comparison
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-brand-navy tracking-tight">
+                  Compare Mortgages & Lending Options
+                </h2>
+                <p class="text-brand-slate mt-2 max-w-2xl text-base">
+                  Select products below to evaluate illustrative rates, loan limits, repayment terms, and eligibility requirements side by side.
+                </p>
+              </div>
+              <div class="bg-white px-4 py-2.5 rounded-xl border border-brand-border text-xs text-brand-slate flex items-center gap-2 self-start lg:self-auto">
+                <svg class="w-4 h-4 text-brand-green shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span><strong>Illustrative Figures Only:</strong> Rates & terms shown are sample placeholders, not actual credit offers.</span>
+              </div>
+            </div>
+
+            <!-- Interactive Product Selector Pills -->
+            <div class="flex flex-wrap items-center gap-2.5 mb-8">
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-slate mr-1">Toggle Products:</span>
+              ${COMPARISON_PRODUCTS.map(p => {
+                const isSelected = appState.selectedComparisonIds.includes(p.id);
+                return `
+                  <button onclick="toggleComparisonProduct('${p.id}')" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition flex items-center gap-2 ${isSelected ? 'bg-brand-navy text-white border-brand-navy shadow-sm' : 'bg-white text-brand-navy border-brand-border hover:border-brand-green'}">
+                    <span class="w-2 h-2 rounded-full ${isSelected ? 'bg-brand-green' : 'bg-slate-300'}"></span>
+                    ${p.name}
+                  </button>
+                `;
+              }).join('')}
+            </div>
+
+            <!-- Comparison Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${Math.min(activeList.length, 3)} gap-6 mb-10">
+              ${activeList.map(prod => `
+                <div class="bg-white rounded-3xl p-6 sm:p-7 border border-brand-border shadow-card hover:shadow-card-hover transition flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between gap-2 mb-4">
+                      <span class="px-3 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold">${prod.category}</span>
+                      <span class="text-xs font-semibold text-brand-slate">${prod.badge}</span>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-brand-navy mb-2">${prod.name}</h3>
+                    <p class="text-sm text-brand-slate mb-5">${prod.highlight}</p>
+
+                    <div class="p-4 rounded-2xl bg-brand-grayBg border border-brand-border mb-5">
+                      <span class="text-xs font-semibold uppercase tracking-wider text-brand-slate block">${prod.rateLabel}*</span>
+                      <span class="font-display font-extrabold text-3xl text-brand-green">${prod.rate}</span>
+                    </div>
+
+                    <dl class="space-y-3 text-sm border-t border-brand-border pt-4">
+                      <div class="flex justify-between gap-2">
+                        <dt class="text-brand-slate font-medium">Loan Amounts</dt>
+                        <dd class="font-semibold text-brand-navy text-right">${prod.amountRange}</dd>
+                      </div>
+                      <div class="flex justify-between gap-2">
+                        <dt class="text-brand-slate font-medium">Repayment Period</dt>
+                        <dd class="font-semibold text-brand-navy text-right">${prod.term}</dd>
+                      </div>
+                      <div class="pt-2 border-t border-brand-border/60">
+                        <dt class="text-xs font-bold uppercase tracking-wider text-brand-slate mb-1">Eligibility Guideline</dt>
+                        <dd class="text-brand-navy font-medium">${prod.eligibility}</dd>
+                      </div>
+                      <div class="pt-2 border-t border-brand-border/60">
+                        <dt class="text-xs font-bold uppercase tracking-wider text-brand-slate mb-1">Application Requirements</dt>
+                        <dd class="text-brand-slate text-xs leading-relaxed">${prod.requirements}</dd>
+                      </div>
+                    </dl>
+                  </div>
+
+                  <div class="mt-6 pt-4 border-t border-brand-border flex items-center gap-3">
+                    <button onclick="startApplicationWithProduct('${prod.name}')" class="flex-1 py-3 px-4 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm transition text-center">
+                      Compare & Apply
+                    </button>
+                    <button onclick="navigateTo('${prod.category === 'Mortgage' ? 'mortgages' : 'lending'}')" class="py-3 px-3.5 rounded-xl border border-brand-border hover:bg-brand-grayBg text-brand-navy font-semibold text-xs transition">
+                      Calculator
+                    </button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+
+            <!-- Structured Comparison Table (Desktop & Tablet Scrollable) -->
+            <div class="bg-white rounded-3xl border border-brand-border shadow-card overflow-hidden">
+              <div class="px-6 py-4 bg-brand-navy text-white flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-display font-bold text-base">Detailed Product Specification Matrix</h3>
+                <span class="text-xs text-emerald-300">*All rates and figures are illustrative examples</span>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-sm">
+                  <thead>
+                    <tr class="bg-brand-grayBg border-b border-brand-border text-xs uppercase tracking-wider text-brand-slate">
+                      <th class="py-3.5 px-6 font-bold">Product Name</th>
+                      <th class="py-3.5 px-6 font-bold">Illustrative Rate</th>
+                      <th class="py-3.5 px-6 font-bold">Loan Range</th>
+                      <th class="py-3.5 px-6 font-bold">Repayment Term</th>
+                      <th class="py-3.5 px-6 font-bold">Eligibility</th>
+                      <th class="py-3.5 px-6 font-bold text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-brand-border">
+                    ${COMPARISON_PRODUCTS.map(p => `
+                      <tr class="hover:bg-brand-mint/30 transition">
+                        <td class="py-4 px-6 font-bold text-brand-navy">${p.name}</td>
+                        <td class="py-4 px-6 font-extrabold text-brand-green">${p.rate}</td>
+                        <td class="py-4 px-6 text-brand-navy font-medium">${p.amountRange}</td>
+                        <td class="py-4 px-6 text-brand-slate">${p.term}</td>
+                        <td class="py-4 px-6 text-brand-slate text-xs">${p.eligibility}</td>
+                        <td class="py-4 px-6 text-right">
+                          <button onclick="startApplicationWithProduct('${p.name}')" class="px-3.5 py-1.5 rounded-lg bg-brand-mint hover:bg-brand-green text-brand-greenDark hover:text-white font-semibold text-xs transition">
+                            Compare Products
+                          </button>
+                        </td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function toggleComparisonProduct(id) {
+      const idx = appState.selectedComparisonIds.indexOf(id);
+      if (idx > -1) {
+        if (appState.selectedComparisonIds.length > 1) {
+          appState.selectedComparisonIds.splice(idx, 1);
+        } else {
+          showToast('Keep at least one product selected for comparison.');
+          return;
+        }
+      } else {
+        appState.selectedComparisonIds.push(id);
+      }
+      renderCurrentView();
+    }
+
+    function startApplicationWithProduct(productName) {
+      appState.onboardingData.productType = productName;
+      appState.onboardingStep = 1;
+      navigateTo('onboarding');
+      showToast(`Selected "${productName}" for your application.`);
+    }
+
+    function renderLocatorWidget() {
+      const q = appState.locationQuery.trim().toLowerCase();
+      const filtered = BRANCH_LOCATIONS.filter(loc => {
+        const matchesQuery = !q ||
+          loc.name.toLowerCase().includes(q) ||
+          loc.cityStateZip.toLowerCase().includes(q) ||
+          loc.zip.includes(q) ||
+          loc.address.toLowerCase().includes(q);
+        const matchesType = appState.locationFilter === 'All' ||
+          (appState.locationFilter === 'Branches' && loc.type.includes('Branch')) ||
+          (appState.locationFilter === 'ATMs' && loc.type.includes('ATM')) ||
+          (appState.locationFilter === 'Mortgage' && loc.services.some(s => s.includes('Mortgage')));
+        return matchesQuery && matchesType;
+      });
+
+      const activeBranch = filtered.find(b => b.id === appState.selectedLocationId) || filtered[0] || BRANCH_LOCATIONS[0];
+
+      return `
+        <div class="bg-white rounded-3xl border border-brand-border shadow-card overflow-hidden">
+          <!-- Search & Filter Bar -->
+          <div class="p-6 bg-brand-grayBg border-b border-brand-border flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+            <div class="relative flex-1">
+              <svg class="w-5 h-5 text-brand-slate absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <input
+                type="text"
+                value="${appState.locationQuery}"
+                oninput="updateLocationSearch(this.value)"
+                placeholder="Search by ZIP code (e.g. 94105, 10036, 78701), city, or street..."
+                class="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white border border-brand-border focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-sm"
+              />
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              ${['All', 'Branches', 'ATMs', 'Mortgage'].map(f => `
+                <button onclick="setLocationFilter('${f}')" class="px-4 py-2.5 rounded-xl text-xs font-bold transition ${appState.locationFilter === f ? 'bg-brand-navy text-white' : 'bg-white text-brand-navy border border-brand-border hover:border-brand-green'}">
+                  ${f === 'All' ? 'All Locations' : f === 'Mortgage' ? 'Mortgage Advisors' : f}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            <!-- Left Results List -->
+            <div class="lg:col-span-5 divide-y divide-brand-border max-h-[480px] overflow-y-auto">
+              ${filtered.length === 0 ? `
+                <div class="p-10 text-center">
+                  <p class="font-display font-bold text-brand-navy mb-2">No locations matched "${appState.locationQuery}"</p>
+                  <p class="text-xs text-brand-slate mb-4">Try searching San Francisco, New York, Austin, Chicago, or clear filters.</p>
+                  <button onclick="updateLocationSearch(''); setLocationFilter('All')" class="px-4 py-2 rounded-xl bg-brand-green text-white text-xs font-semibold">Reset Search</button>
+                </div>
+              ` : filtered.map(loc => {
+                const isSelected = activeBranch && activeBranch.id === loc.id;
+                return `
+                  <div onclick="selectBranchPin(${loc.id})" class="p-5 cursor-pointer transition ${isSelected ? 'bg-brand-mint/50 border-l-4 border-l-brand-green' : 'hover:bg-brand-grayBg/60'}">
+                    <div class="flex items-start justify-between gap-2 mb-1.5">
+                      <span class="text-[11px] font-bold uppercase tracking-wider text-brand-greenDark">${loc.type}</span>
+                      <span class="px-2 py-0.5 rounded-md bg-white border border-brand-border text-xs font-semibold text-brand-navy">${loc.distance}</span>
+                    </div>
+                    <h4 class="font-display font-bold text-base text-brand-navy">${loc.name}</h4>
+                    <p class="text-xs text-brand-slate mt-1">${loc.address}, ${loc.cityStateZip}</p>
+                    <p class="text-xs text-brand-navy font-medium mt-2 flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5 text-brand-green shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                      ${loc.hours}
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mt-3">
+                      ${loc.services.map(s => `<span class="px-2 py-0.5 rounded-md bg-white border border-brand-border text-[11px] text-brand-slate">${s}</span>`).join('')}
+                    </div>
+                    <div class="mt-4 flex items-center gap-3">
+                      <button type="button" onclick="event.stopPropagation(); openDirectionsModal(${loc.id})" class="px-3.5 py-1.5 rounded-lg bg-brand-navy hover:bg-brand-navyLight text-white text-xs font-semibold transition">
+                        Get Directions
+                      </button>
+                      <span class="text-xs text-brand-slate font-medium">${loc.phone}</span>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+
+            <!-- Right Interactive Vector Map Canvas -->
+            <div class="lg:col-span-7 relative min-h-[380px] bg-[#E8F2EE] overflow-hidden flex flex-col justify-between p-6">
+              <!-- Stylized Street Grid & Parks SVG Map -->
+              <svg class="absolute inset-0 w-full h-full object-cover" viewBox="0 0 800 500" preserveAspectRatio="none" aria-hidden="true">
+                <rect width="800" height="500" fill="#EDF5F2"/>
+                <!-- Park green blocks -->
+                <rect x="60" y="70" width="170" height="120" rx="24" fill="#D5F1E3"/>
+                <rect x="520" y="290" width="210" height="140" rx="28" fill="#D5F1E3"/>
+                <!-- River waterway -->
+                <path d="M-20 380 Q 240 310, 440 420 T 840 360" fill="none" stroke="#CBE5F6" stroke-width="34" stroke-linecap="round"/>
+                <!-- Major Avenues -->
+                <path d="M0 150 L800 190 M0 300 L800 260 M220 0 L260 500 M540 0 L490 500" stroke="#FFFFFF" stroke-width="14"/>
+                <path d="M0 150 L800 190 M0 300 L800 260 M220 0 L260 500 M540 0 L490 500" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8"/>
+                <!-- Secondary Streets -->
+                <path d="M0 80 L800 80 M0 430 L800 430 M110 0 L110 500 M380 0 L380 500 M680 0 L680 500" stroke="#FFFFFF" stroke-width="7"/>
+              </svg>
+
+              <!-- Map Top Badge -->
+              <div class="relative z-10 flex items-center justify-between">
+                <span class="px-3.5 py-1.5 rounded-xl bg-white/95 backdrop-blur shadow-sm border border-brand-border text-xs font-bold text-brand-navy">
+                  Interactive Network Map • Click a pin for details
+                </span>
+                <span class="px-3 py-1.5 rounded-xl bg-brand-navy text-white text-xs font-semibold shadow-sm">
+                  40,000+ Fee-Free Partner ATMs
+                </span>
+              </div>
+
+              <!-- Interactive Location Pins -->
+              ${BRANCH_LOCATIONS.map(loc => {
+                const isSelected = activeBranch && activeBranch.id === loc.id;
+                return `
+                  <button
+                    type="button"
+                    onclick="selectBranchPin(${loc.id})"
+                    style="left: ${loc.pinX}%; top: ${loc.pinY}%;"
+                    aria-label="Select ${loc.name}"
+                    class="absolute -translate-x-1/2 -translate-y-1/2 z-20 group focus:outline-none">
+                    ${isSelected ? `<span class="absolute inset-0 rounded-full bg-brand-green pin-pulse"></span>` : ''}
+                    <div class="relative flex items-center justify-center w-10 h-10 rounded-full shadow-lg border-2 border-white transition-transform ${isSelected ? 'bg-brand-green scale-115' : 'bg-brand-navy hover:bg-brand-green hover:scale-110'}">
+                      <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                    </div>
+                  </button>
+                `;
+              }).join('')}
+
+              <!-- Active Pin Floating Card -->
+              ${activeBranch ? `
+                <div class="relative z-20 mt-auto bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-brand-border shadow-floating flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-brand-green"></span>
+                      <span class="text-xs font-bold uppercase tracking-wider text-brand-greenDark">${activeBranch.type}</span>
+                    </div>
+                    <h4 class="font-display font-bold text-base text-brand-navy mt-0.5">${activeBranch.name}</h4>
+                    <p class="text-xs text-brand-slate">${activeBranch.address}, ${activeBranch.cityStateZip} • ${activeBranch.phone}</p>
+                  </div>
+                  <div class="flex items-center gap-2 shrink-0">
+                    <button onclick="openDirectionsModal(${activeBranch.id})" class="px-4 py-2.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white text-xs font-semibold shadow-sm transition">
+                      Get Directions
+                    </button>
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function updateLocationSearch(val) {
+      appState.locationQuery = val;
+      renderCurrentView();
+    }
+
+    function setLocationFilter(filter) {
+      appState.locationFilter = filter;
+      renderCurrentView();
+    }
+
+    function selectBranchPin(id) {
+      appState.selectedLocationId = id;
+      renderCurrentView();
+    }
+
+    function openDirectionsModal(id) {
+      const loc = BRANCH_LOCATIONS.find(l => l.id === id);
+      if (!loc) return;
+      showInfoModal(`Directions to ${loc.name}`, `
+        <div class="p-4 rounded-2xl bg-brand-mint border border-brand-mintDeep text-brand-navy mb-4">
+          <p class="font-bold text-sm">${loc.address}, ${loc.cityStateZip}</p>
+          <p class="text-xs text-brand-slate mt-1">Estimated travel time: <strong>7 mins</strong> (${loc.distance}) via Main Corridor</p>
+        </div>
+        <ol class="list-decimal pl-5 space-y-2.5 text-sm text-brand-navy">
+          <li>Head east toward the central financial district boulevard for 0.5 miles.</li>
+          <li>Turn right onto <strong>${loc.address.split(' ').slice(1).join(' ')}</strong>.</li>
+          <li>Arrive at <strong>${loc.name}</strong> on your right. Complimentary 30-minute member parking and 24/7 Smart ATM lane available.</li>
+        </ol>
+        <div class="mt-5 pt-4 border-t border-brand-border flex items-center justify-between">
+          <span class="text-xs text-brand-slate">Hours: ${loc.hours}</span>
+          <button onclick="closeInfoModal(); showToast('Turn-by-turn directions sent to your mobile device.')" class="px-4 py-2 rounded-xl bg-brand-green text-white text-xs font-semibold">
+            Send to Phone
+          </button>
+        </div>
+      `);
+    }
+
+    // ==========================================
+    // 4. VIEW RENDERERS (ALL 8 PAGES)
+    // ==========================================
+
+    // --- PAGE 1: HOMEPAGE ---
+    function renderHomeView() {
+      const filteredArticles = appState.educationCategory === 'All'
+        ? EDUCATION_ARTICLES
+        : EDUCATION_ARTICLES.filter(a => a.category === appState.educationCategory);
+
+      return `
+        <div class="view-section">
+          <!-- HERO SECTION -->
+          <section class="relative overflow-hidden bg-gradient-to-b from-brand-mint/70 via-white to-white pt-10 pb-16 lg:pt-16 lg:pb-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Copy -->
+                <div class="lg:col-span-6 space-y-6">
+                  <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-mintDeep shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-green"></span>
+                    <span class="text-xs font-bold text-brand-navy tracking-wide">Smarter Banking • Transparent Lending</span>
+                  </div>
+
+                  <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[54px] text-brand-navy leading-[1.12] tracking-tight">
+                    Make every financial move with <span class="text-brand-green">clarity & confidence.</span>
+                  </h1>
+
+                  <p class="text-base sm:text-lg text-brand-slate leading-relaxed max-w-xl">
+                    Compare personalized mortgage options, explore zero-surprise digital banking, and unlock clear financial guidance—all in one secure platform built around your goals.
+                  </p>
+
+                  <!-- Hero CTAs -->
+                  <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+                    <button onclick="document.getElementById('product-overview').scrollIntoView({behavior:'smooth'})" class="px-7 py-4 rounded-2xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-base shadow-md hover:shadow-lg transition flex items-center justify-center gap-2">
+                      <span>Explore Financial Products</span>
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button onclick="navigateTo('onboarding')" class="px-7 py-4 rounded-2xl bg-white hover:bg-brand-grayBg text-brand-navy font-semibold text-base border-2 border-brand-navy/15 hover:border-brand-navy transition text-center">
+                      Get Started
+                    </button>
+                  </div>
+
+                  <!-- Trust Micro-metrics -->
+                  <div class="pt-4 grid grid-cols-3 gap-4 border-t border-brand-border/80 max-w-lg">
+                    <div>
+                      <span class="font-display font-extrabold text-2xl text-brand-navy block">4.50%<span class="text-xs font-normal text-brand-slate">*</span></span>
+                      <span class="text-xs text-brand-slate">Illustrative Savings APY</span>
+                    </div>
+                    <div>
+                      <span class="font-display font-extrabold text-2xl text-brand-navy block">3 Min</span>
+                      <span class="text-xs text-brand-slate">Digital Pre-Qualification</span>
+                    </div>
+                    <div>
+                      <span class="font-display font-extrabold text-2xl text-brand-navy block">$0 Fees</span>
+                      <span class="text-xs text-brand-slate">Monthly Checking Maintenance</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Lifestyle Imagery + Floating Financial UI Cards -->
+                <div class="lg:col-span-6 relative">
+                  <div class="relative rounded-[2rem] overflow-hidden shadow-floating border-4 border-white bg-brand-mint">
+                    <img
+                      src="${IMAGES.hero}"
+                      alt="Customer reviewing digital banking and mortgage options on a tablet"
+                      onerror="this.src='https://placehold.co/900x700/EBF8F2/0F2537?text=Modern+Digital+Banking'"
+                      class="w-full h-[420px] sm:h-[480px] object-cover"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent"></div>
+                  </div>
+
+                  <!-- Floating Card 1: Credit & Readiness Score -->
+                  <div class="hidden sm:block absolute -left-6 top-8 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-floating border border-brand-border max-w-[230px]">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="text-[11px] font-bold uppercase tracking-wider text-brand-slate">Home Readiness</span>
+                      <span class="px-2 py-0.5 rounded-full bg-brand-mint text-brand-greenDark text-[11px] font-bold">Excellent</span>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                      <span class="font-display font-extrabold text-3xl text-brand-navy">768</span>
+                      <span class="text-xs font-semibold text-brand-green">+18 pts this mo</span>
+                    </div>
+                    <div class="w-full h-2 rounded-full bg-brand-grayBg mt-2.5 overflow-hidden">
+                      <div class="w-4/5 h-full rounded-full bg-brand-green"></div>
+                    </div>
+                  </div>
+
+                  <!-- Floating Card 2: Smart Savings & Rate Snapshot -->
+                  <div class="sm:absolute sm:-right-4 sm:-bottom-6 mt-4 sm:mt-0 bg-brand-navy text-white rounded-2xl p-5 shadow-floating border border-white/10 sm:max-w-[290px]">
+                    <div class="flex items-center gap-3 mb-3">
+                      <div class="w-10 h-10 rounded-xl bg-brand-green/20 text-brand-green flex items-center justify-center shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                      </div>
+                      <div>
+                        <p class="text-xs text-slate-300">Illustrative 30-Yr Fixed*</p>
+                        <p class="font-display font-extrabold text-xl text-white">6.12% APR</p>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-slate-300 pt-2.5 border-t border-white/10">
+                      <span>No impact to credit score</span>
+                      <button onclick="navigateTo('mortgages')" class="text-brand-green font-bold hover:underline">Estimate →</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FINANCIAL PRODUCT OVERVIEW (5 CARDS) -->
+          <section id="product-overview" class="py-16 sm:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold uppercase tracking-wider mb-3">
+                  Tailored Financial Suite
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-brand-navy tracking-tight">
+                  Everything you need to bank, borrow, and build wealth
+                </h2>
+                <p class="text-brand-slate mt-3 text-base">
+                  Explore transparent financial solutions designed with clear terms, digital speed, and dedicated human guidance.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1: Mortgage Solutions -->
+                <div class="group bg-white rounded-3xl p-7 border border-brand-border shadow-card hover:shadow-card-hover hover:border-brand-green/40 transition flex flex-col justify-between">
+                  <div>
+                    <div class="w-12 h-12 rounded-2xl bg-brand-mint text-brand-green flex items-center justify-center mb-5 group-hover:bg-brand-green group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-brand-navy mb-2">Mortgage Solutions</h3>
+                    <p class="text-sm text-brand-slate leading-relaxed mb-5">
+                      Purchase your dream home with 30-year fixed, 15-year fixed, or FHA/VA loan options featuring fast digital pre-approval.
+                    </p>
+                  </div>
+                  <button onclick="navigateTo('mortgages')" class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-green hover:text-brand-greenDark transition">
+                    <span>Explore More</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  </button>
+                </div>
+
+                <!-- Card 2: Personal Loans -->
+                <div class="group bg-white rounded-3xl p-7 border border-brand-border shadow-card hover:shadow-card-hover hover:border-brand-green/40 transition flex flex-col justify-between">
+                  <div>
+                    <div class="w-12 h-12 rounded-2xl bg-brand-mint text-brand-green flex items-center justify-center mb-5 group-hover:bg-brand-green group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-brand-navy mb-2">Personal Loans</h3>
+                    <p class="text-sm text-brand-slate leading-relaxed mb-5">
+                      Consolidate high-interest debt or fund major life expenses with fixed monthly payments from $2,500 to $50,000.
+                    </p>
+                  </div>
+                  <button onclick="navigateTo('lending')" class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-green hover:text-brand-greenDark transition">
+                    <span>Explore More</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  </button>
+                </div>
+
+                <!-- Card 3: Home Financing -->
+                <div class="group bg-white rounded-3xl p-7 border border-brand-border shadow-card hover:shadow-card-hover hover:border-brand-green/40 transition flex flex-col justify-between">
+                  <div>
+                    <div class="w-12 h-12 rounded-2xl bg-brand-mint text-brand-green flex items-center justify-center mb-5 group-hover:bg-brand-green group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-brand-navy mb-2">Home Financing</h3>
+                    <p class="text-sm text-brand-slate leading-relaxed mb-5">
+                      Unlock your property’s built-up value with flexible Home Equity Lines of Credit (HELOC) and rate-and-term refinancing.
+                    </p>
+                  </div>
+                  <button onclick="navigateTo('mortgages')" class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-green hover:text-brand-greenDark transition">
+                    <span>Explore More</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  </button>
+                </div>
+
+                <!-- Card 4: Banking Services -->
+                <div class="group bg-white rounded-3xl p-7 border border-brand-border shadow-card hover:shadow-card-hover hover:border-brand-green/40 transition flex flex-col justify-between">
+                  <div>
+                    <div class="w-12 h-12 rounded-2xl bg-brand-mint text-brand-green flex items-center justify-center mb-5 group-hover:bg-brand-green group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-brand-navy mb-2">Banking Services</h3>
+                    <p class="text-sm text-brand-slate leading-relaxed mb-5">
+                      Everyday zero-fee digital checking, automated high-yield savings buckets, and early direct deposit access.
+                    </p>
+                  </div>
+                  <button onclick="navigateTo('banking')" class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-green hover:text-brand-greenDark transition">
+                    <span>Explore More</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  </button>
+                </div>
+
+                <!-- Card 5: Lending Options -->
+                <div class="group bg-white rounded-3xl p-7 border border-brand-border shadow-card hover:shadow-card-hover hover:border-brand-green/40 transition flex flex-col justify-between md:col-span-2 lg:col-span-2 bg-gradient-to-br from-white to-brand-mint/40">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                    <div class="space-y-3 max-w-xl">
+                      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-navy text-white text-xs font-bold">
+                        Smart Rate Match
+                      </div>
+                      <h3 class="font-display font-bold text-2xl text-brand-navy">Lending Options & Pre-Qualification</h3>
+                      <p class="text-sm text-brand-slate leading-relaxed">
+                        Compare personalized lending pathways—from debt consolidation to home improvement financing—with soft-pull rate previews that never hurt your credit score.
+                      </p>
+                    </div>
+                    <button onclick="navigateTo('lending')" class="shrink-0 px-6 py-3.5 rounded-2xl bg-brand-navy hover:bg-brand-navyLight text-white font-semibold text-sm transition inline-flex items-center gap-2 self-start sm:self-center">
+                      <span>Explore More</span>
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FINANCIAL COMPARISON SECTION -->
+          ${renderComparisonSection(true)}
+
+          <!-- FINANCIAL EDUCATION SECTION -->
+          <section class="py-16 sm:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                  <span class="inline-block px-3.5 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold uppercase tracking-wider mb-3">
+                    Financial Literacy Hub
+                  </span>
+                  <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-brand-navy tracking-tight">
+                    Practical guides for smarter money decisions
+                  </h2>
+                </div>
+                <button onclick="navigateTo('education')" class="text-sm font-bold text-brand-green hover:text-brand-greenDark inline-flex items-center gap-1.5">
+                  <span>View All Articles & Guides</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
+              </div>
+
+              <!-- Category Filter Pills -->
+              <div class="flex flex-wrap items-center gap-2 mb-8">
+                ${['All', 'Mortgages & Home', 'Credit & Loans', 'Banking & Savings', 'Financial Planning'].map(cat => `
+                  <button onclick="setHomeEduCategory('${cat}')" class="px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition ${appState.educationCategory === cat ? 'bg-brand-green text-white shadow-sm' : 'bg-brand-grayBg text-brand-navy hover:bg-brand-mint'}">
+                    ${cat}
+                  </button>
+                `).join('')}
+              </div>
+
+              <!-- Editorial Cards -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                ${filteredArticles.map(art => `
+                  <article onclick="openArticleModal(${art.id})" class="group cursor-pointer bg-white rounded-3xl border border-brand-border shadow-card hover:shadow-card-hover overflow-hidden flex flex-col justify-between transition">
+                    <div>
+                      <div class="relative h-44 overflow-hidden bg-brand-mint">
+                        <img src="${art.image}" alt="${art.title}" onerror="this.src='https://placehold.co/600x400/EBF8F2/0F2537?text=Verdant+Guide'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-white/95 text-[11px] font-bold text-brand-navy shadow-sm">${art.category}</span>
+                      </div>
+                      <div class="p-5">
+                        <span class="text-xs text-brand-slate font-medium">${art.readTime}</span>
+                        <h3 class="font-display font-bold text-base text-brand-navy mt-1.5 mb-2 group-hover:text-brand-green transition line-clamp-2">${art.title}</h3>
+                        <p class="text-xs text-brand-slate leading-relaxed line-clamp-3">${art.excerpt}</p>
+                      </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2">
+                      <span class="text-xs font-bold text-brand-green inline-flex items-center gap-1">
+                        Read Guide
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                      </span>
+                    </div>
+                  </article>
+                `).join('')}
+              </div>
+            </div>
+          </section>
+
+          <!-- BRANCH & ATM LOCATOR SECTION -->
+          <section class="py-16 sm:py-20 bg-brand-grayBg border-t border-brand-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+                <div>
+                  <span class="inline-block px-3.5 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold uppercase tracking-wider mb-3">
+                    Nationwide Access
+                  </span>
+                  <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-brand-navy tracking-tight">
+                    Locate a Nearby Branch or 24/7 Smart ATM
+                  </h2>
+                  <p class="text-brand-slate mt-2 max-w-2xl text-base">
+                    Search by ZIP code, city, or street address to view branch hours, mortgage advisory availability, and instant directions.
+                  </p>
+                </div>
+                <button onclick="navigateTo('locations')" class="px-5 py-2.5 rounded-xl bg-white border border-brand-border hover:border-brand-green text-sm font-bold text-brand-navy transition self-start md:self-auto">
+                  Full Screen Locator →
+                </button>
+              </div>
+              ${renderLocatorWidget()}
+            </div>
+          </section>
+
+          <!-- CUSTOMER TRUST & SECURITY SECTION -->
+          <section class="py-16 sm:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="bg-brand-navy rounded-[2.25rem] p-8 sm:p-12 lg:p-14 text-white overflow-hidden relative">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+                  <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+                      Bank-Grade Security & Human Support
+                    </span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl leading-tight">
+                      Protected at every tap. Backed by real financial specialists.
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                      We combine continuous real-time fraud defense, 256-bit end-to-end encryption, and FDIC-insured partner accounts with U.S.-based mortgage and banking specialists ready whenever you need guidance.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                      <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                        <h4 class="font-display font-bold text-base text-white mb-1">256-Bit Encryption</h4>
+                        <p class="text-xs text-slate-300">Strict data privacy & multi-factor biometric sign-in.</p>
+                      </div>
+                      <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                        <h4 class="font-display font-bold text-base text-white mb-1">Zero-Liability</h4>
+                        <p class="text-xs text-slate-300">Instant card lock & proactive fraud alerts 24/7.</p>
+                      </div>
+                      <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                        <h4 class="font-display font-bold text-base text-white mb-1">24/7 Live Support</h4>
+                        <p class="text-xs text-slate-300">Average phone & chat wait time under 60 seconds.</p>
+                      </div>
+                    </div>
+                    <div class="pt-2 flex flex-wrap items-center gap-4">
+                      <button onclick="navigateTo('onboarding')" class="px-6 py-3.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm transition">
+                        Open a Secure Account
+                      </button>
+                      <button onclick="navigateTo('support')" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition">
+                        Visit Support Center
+                      </button>
+                    </div>
+                  </div>
+                  <div class="lg:col-span-5">
+                    <div class="rounded-3xl overflow-hidden border-2 border-white/15 shadow-2xl">
+                      <img src="${IMAGES.trustAdvisor}" alt="Verdant Financial specialist assisting a client" onerror="this.src='https://placehold.co/700x600/1B3A54/FFFFFF?text=Dedicated+Support'" class="w-full h-80 sm:h-96 object-cover" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function setHomeEduCategory(cat) {
+      appState.educationCategory = cat;
+      renderCurrentView();
+    }
+
+    // --- PAGE 2: BANKING & ACCOUNTS ---
+    function renderBankingView() {
+      return `
+        <div class="view-section">
+          <section class="bg-brand-mint/60 py-14 sm:py-20 border-b border-brand-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div class="lg:col-span-7 space-y-5">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-white text-brand-greenDark text-xs font-bold uppercase tracking-wider shadow-sm">Digital Banking & Accounts</span>
+                <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-navy tracking-tight">Everyday banking with zero monthly fees and high-yield growth.</h1>
+                <p class="text-brand-slate text-base sm:text-lg leading-relaxed max-w-2xl">
+                  Manage checking, high-yield savings buckets, and automated direct deposits from one intuitive dashboard.
+                </p>
+                <div class="flex flex-wrap gap-3 pt-2">
+                  <button onclick="startApplicationWithProduct('Verdant High-Yield Checking & Savings Bundle')" class="px-6 py-3.5 rounded-2xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm shadow-sm transition">
+                    Open Checking & Savings
+                  </button>
+                  <button onclick="navigateTo('locations')" class="px-6 py-3.5 rounded-2xl bg-white border border-brand-border text-brand-navy font-semibold text-sm hover:bg-brand-grayBg transition">
+                    Find Fee-Free ATMs
+                  </button>
+                </div>
+              </div>
+              <div class="lg:col-span-5">
+                <img src="${IMAGES.bankingCouple}" alt="Couple managing digital bank account" onerror="this.src='https://placehold.co/800x600/EBF8F2/0F2537?text=Digital+Banking'" class="rounded-3xl shadow-floating border-4 border-white w-full h-72 sm:h-80 object-cover" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Interactive High-Yield Savings Calculator -->
+          <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-brand-grayBg rounded-3xl p-6 sm:p-10 border border-brand-border">
+                <div class="lg:col-span-7 space-y-6">
+                  <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-greenDark">Interactive Earnings Estimator</span>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy mt-1">See how fast your savings can grow</h2>
+                    <p class="text-xs text-brand-slate mt-1">Illustrative calculation assuming 4.50% APY compounded monthly.</p>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-sm font-bold text-brand-navy mb-2">
+                      <span>Initial Deposit</span>
+                      <span id="sav-init-label" class="text-brand-green">$15,000</span>
+                    </div>
+                    <input type="range" id="sav-init-slider" min="1000" max="100000" step="1000" value="15000" oninput="recalcSavings()" class="w-full" />
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-sm font-bold text-brand-navy mb-2">
+                      <span>Monthly Contribution</span>
+                      <span id="sav-mo-label" class="text-brand-green">$500 / mo</span>
+                    </div>
+                    <input type="range" id="sav-mo-slider" min="0" max="3000" step="50" value="500" oninput="recalcSavings()" class="w-full" />
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-sm font-bold text-brand-navy mb-2">
+                      <span>Time Horizon</span>
+                      <span id="sav-yr-label" class="text-brand-green">3 Years</span>
+                    </div>
+                    <input type="range" id="sav-yr-slider" min="1" max="10" step="1" value="3" oninput="recalcSavings()" class="w-full" />
+                  </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-brand-navy text-white rounded-3xl p-7 shadow-xl space-y-5">
+                  <span class="px-3 py-1 rounded-full bg-brand-green/20 text-emerald-300 text-xs font-bold">Illustrative 4.50% APY*</span>
+                  <div>
+                    <p class="text-xs text-slate-300 uppercase tracking-wider">Projected Total Balance</p>
+                    <p id="sav-total-out" class="font-display font-extrabold text-4xl text-white mt-1">$36,412</p>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/10 text-sm">
+                    <div>
+                      <span class="text-xs text-slate-400 block">Total Contributions</span>
+                      <span id="sav-contrib-out" class="font-bold text-white">$33,000</span>
+                    </div>
+                    <div>
+                      <span class="text-xs text-slate-400 block">Illustrative Interest</span>
+                      <span id="sav-interest-out" class="font-bold text-brand-green">+$3,412</span>
+                    </div>
+                  </div>
+                  <button onclick="startApplicationWithProduct('Verdant High-Yield Savings (4.50% Illustrative APY)')" class="w-full py-3.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm transition">
+                    Open High-Yield Savings
+                  </button>
+                </div>
+              </div>
+
+              <!-- Account Comparison Cards -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
+                ${[
+                  {
+                    name: 'Verdant Everyday Checking',
+                    rate: '0.25% APY*',
+                    fee: '$0 Monthly Maintenance',
+                    perks: ['Early direct deposit up to 2 days faster', '40,000+ fee-free ATMs nationwide', 'Instant virtual & physical debit card', 'No overdraft fees up to $100'],
+                    prod: 'Verdant Everyday Checking'
+                  },
+                  {
+                    name: 'Verdant High-Yield Savings',
+                    rate: '4.50% APY*',
+                    fee: '$0 Minimum Balance Fee',
+                    perks: ['Up to 8 customizable savings buckets', 'Automated round-up transfers', 'FDIC partner coverage up to $250K', 'Instant transfers to Verdant Checking'],
+                    prod: 'Verdant High-Yield Savings'
+                  },
+                  {
+                    name: '12-Month Locked Rate CD',
+                    rate: '4.75% APY*',
+                    fee: '$500 Minimum Opening Deposit',
+                    perks: ['Guaranteed fixed yield for 12 months', 'Flexible monthly or maturity payout', '10-day rate lock guarantee', 'Automatic renewal alerts'],
+                    prod: '12-Month Locked Rate CD'
+                  }
+                ].map(acc => `
+                  <div class="bg-white rounded-3xl p-7 border border-brand-border shadow-card flex flex-col justify-between">
+                    <div>
+                      <span class="px-3 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold">${acc.fee}</span>
+                      <h3 class="font-display font-bold text-xl text-brand-navy mt-4">${acc.name}</h3>
+                      <p class="font-display font-extrabold text-3xl text-brand-green my-3">${acc.rate}</p>
+                      <ul class="space-y-2.5 text-sm text-brand-slate border-t border-brand-border pt-4">
+                        ${acc.perks.map(pk => `<li class="flex items-start gap-2"><span class="text-brand-green font-bold">✓</span><span>${pk}</span></li>`).join('')}
+                      </ul>
+                    </div>
+                    <button onclick="startApplicationWithProduct('${acc.prod}')" class="mt-6 w-full py-3 rounded-xl bg-brand-navy hover:bg-brand-green text-white font-semibold text-sm transition">
+                      Select Account
+                    </button>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function recalcSavings() {
+      const initEl = document.getElementById('sav-init-slider');
+      if (!initEl) return;
+      const P = Number(initEl.value);
+      const PMT = Number(document.getElementById('sav-mo-slider').value);
+      const years = Number(document.getElementById('sav-yr-slider').value);
+      const r = 0.045 / 12;
+      const n = years * 12;
+
+      const fvInit = P * Math.pow(1 + r, n);
+      const fvSeries = PMT * ((Math.pow(1 + r, n) - 1) / r);
+      const total = Math.round(fvInit + fvSeries);
+      const contrib = P + PMT * n;
+      const interest = Math.max(0, total - contrib);
+
+      document.getElementById('sav-init-label').textContent = '$' + P.toLocaleString();
+      document.getElementById('sav-mo-label').textContent = '$' + PMT.toLocaleString() + ' / mo';
+      document.getElementById('sav-yr-label').textContent = years + (years === 1 ? ' Year' : ' Years');
+      document.getElementById('sav-total-out').textContent = '$' + total.toLocaleString();
+      document.getElementById('sav-contrib-out').textContent = '$' + contrib.toLocaleString();
+      document.getElementById('sav-interest-out').textContent = '+$' + interest.toLocaleString();
+    }
+
+    // --- PAGE 3: MORTGAGE SOLUTIONS ---
+    function renderMortgagesView() {
+      return `
+        <div class="view-section">
+          <section class="bg-brand-mint/60 py-14 sm:py-20 border-b border-brand-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div class="lg:col-span-7 space-y-5">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-white text-brand-greenDark text-xs font-bold uppercase tracking-wider shadow-sm">Home Financing & Mortgages</span>
+                <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-navy tracking-tight">Transparent mortgages built to get you home faster.</h1>
+                <p class="text-brand-slate text-base sm:text-lg leading-relaxed max-w-2xl">
+                  Compare 30-year fixed, 15-year fixed, and refinance rates in seconds—with verified digital pre-approval letters and dedicated loan advisors.
+                </p>
+                <div class="flex flex-wrap gap-3 pt-2">
+                  <button onclick="startApplicationWithProduct('30-Year Fixed Mortgage Pre-Approval')" class="px-6 py-3.5 rounded-2xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm shadow-sm transition">
+                    Start Mortgage Pre-Approval
+                  </button>
+                  <button onclick="document.getElementById('mortgage-calc').scrollIntoView({behavior:'smooth'})" class="px-6 py-3.5 rounded-2xl bg-white border border-brand-border text-brand-navy font-semibold text-sm hover:bg-brand-grayBg transition">
+                    Calculate Monthly Payment
+                  </button>
+                </div>
+              </div>
+              <div class="lg:col-span-5">
+                <img src="${IMAGES.mortgageFamily}" alt="Homeowners outside modern house" onerror="this.src='https://placehold.co/800x600/EBF8F2/0F2537?text=Mortgage+Solutions'" class="rounded-3xl shadow-floating border-4 border-white w-full h-72 sm:h-80 object-cover" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Interactive Monthly Mortgage Payment Estimator -->
+          <section id="mortgage-calc" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="bg-brand-grayBg rounded-3xl p-6 sm:p-10 border border-brand-border grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                  <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-greenDark">Interactive Payment Simulator</span>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy mt-1">Estimate your monthly mortgage payment</h2>
+                    <p class="text-xs text-brand-slate mt-1">Illustrative estimate including principal, interest, and estimated taxes/insurance.</p>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-sm font-bold text-brand-navy mb-2">
+                      <span>Home Purchase Price</span>
+                      <span id="mort-price-label" class="text-brand-green">$425,000</span>
+                    </div>
+                    <input type="range" id="mort-price-slider" min="150000" max="1200000" step="5000" value="425000" oninput="recalcMortgage()" class="w-full" />
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-sm font-bold text-brand-navy mb-2">
+                      <span>Down Payment (<span id="mort-down-pct">20%</span>)</span>
+                      <span id="mort-down-label" class="text-brand-green">$85,000</span>
+                    </div>
+                    <input type="range" id="mort-down-slider" min="3" max="40" step="1" value="20" oninput="recalcMortgage()" class="w-full" />
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-xs font-bold uppercase text-brand-navy mb-1.5">Loan Term</label>
+                      <select id="mort-term-select" onchange="recalcMortgage()" class="w-full px-4 py-3 rounded-xl bg-white border border-brand-border text-sm font-semibold text-brand-navy">
+                        <option value="30" selected>30-Year Fixed (6.12% Illustrative)</option>
+                        <option value="15">15-Year Fixed (5.48% Illustrative)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="block text-xs font-bold uppercase text-brand-navy mb-1.5">Loan Amount</label>
+                      <div id="mort-loan-amt" class="px-4 py-3 rounded-xl bg-white border border-brand-border text-sm font-bold text-brand-navy">$340,000</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-brand-navy text-white rounded-3xl p-7 shadow-xl space-y-5">
+                  <span class="px-3 py-1 rounded-full bg-brand-green/20 text-emerald-300 text-xs font-bold">Illustrative Monthly Estimate*</span>
+                  <div>
+                    <p class="text-xs text-slate-300 uppercase tracking-wider">Estimated Total Monthly Payment</p>
+                    <p id="mort-monthly-out" class="font-display font-extrabold text-4xl text-white mt-1">$2,491<span class="text-base font-normal text-slate-300">/mo</span></p>
+                  </div>
+                  <div class="space-y-2 pt-4 border-t border-white/10 text-xs">
+                    <div class="flex justify-between">
+                      <span class="text-slate-300">Principal & Interest</span>
+                      <span id="mort-pi-out" class="font-bold text-white">$2,065/mo</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-300">Est. Property Tax & Insurance</span>
+                      <span id="mort-tax-out" class="font-bold text-emerald-300">$426/mo</span>
+                    </div>
+                  </div>
+                  <button onclick="startApplicationWithProduct('Mortgage Pre-Approval Application')" class="w-full py-3.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm transition">
+                    Get Pre-Approved Online
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          ${renderComparisonSection(false)}
+        </div>
+      `;
+    }
+
+    function recalcMortgage() {
+      const priceEl = document.getElementById('mort-price-slider');
+      if (!priceEl) return;
+      const price = Number(priceEl.value);
+      const downPct = Number(document.getElementById('mort-down-slider').value);
+      const termYears = Number(document.getElementById('mort-term-select').value);
+      const apr = termYears === 15 ? 0.0548 : 0.0612;
+
+      const downAmt = Math.round(price * (downPct / 100));
+      const loanAmt = price - downAmt;
+      const r = apr / 12;
+      const n = termYears * 12;
+      const pi = Math.round(loanAmt * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+      const taxIns = Math.round((price * 0.012) / 12);
+      const totalMonthly = pi + taxIns;
+
+      document.getElementById('mort-price-label').textContent = '$' + price.toLocaleString();
+      document.getElementById('mort-down-pct').textContent = downPct + '%';
+      document.getElementById('mort-down-label').textContent = '$' + downAmt.toLocaleString();
+      document.getElementById('mort-loan-amt').textContent = '$' + loanAmt.toLocaleString();
+      document.getElementById('mort-monthly-out').innerHTML = `$${totalMonthly.toLocaleString()}<span class="text-base font-normal text-slate-300">/mo</span>`;
+      document.getElementById('mort-pi-out').textContent = `$${pi.toLocaleString()}/mo`;
+      document.getElementById('mort-tax-out').textContent = `$${taxIns.toLocaleString()}/mo`;
+    }
+
+    // --- PAGE 4: LENDING PRODUCTS ---
+    function renderLendingView() {
+      return `
+        <div class="view-section">
+          <section class="bg-brand-mint/60 py-14 sm:py-20 border-b border-brand-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="max-w-3xl space-y-5">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-white text-brand-greenDark text-xs font-bold uppercase tracking-wider shadow-sm">Personal Loans & Credit Lines</span>
+                <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-navy tracking-tight">Simple, fixed-rate loans with zero hidden fees.</h1>
+                <p class="text-brand-slate text-base sm:text-lg leading-relaxed">
+                  Whether consolidating high-APR credit cards, financing home improvements, or covering unexpected expenses, preview your estimated payment before applying.
+                </p>
+              </div>
+
+              <!-- Interactive Personal Loan Calculator -->
+              <div class="mt-10 bg-white rounded-3xl p-6 sm:p-10 border border-brand-border shadow-card grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                  <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-greenDark">Personal Loan Payment Estimator</span>
+                    <h2 class="font-display font-bold text-2xl text-brand-navy mt-1">Customize your loan amount & term</h2>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-sm font-bold text-brand-navy mb-2">
+                      <span>Desired Loan Amount</span>
+                      <span id="loan-amt-label" class="text-brand-green">$18,000</span>
+                    </div>
+                    <input type="range" id="loan-amt-slider" min="2500" max="50000" step="500" value="18000" oninput="recalcPersonalLoan()" class="w-full" />
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-sm font-bold text-brand-navy mb-2">
+                      <span>Repayment Term</span>
+                      <span id="loan-term-label" class="text-brand-green">36 Months (3 Years)</span>
+                    </div>
+                    <input type="range" id="loan-term-slider" min="24" max="60" step="12" value="36" oninput="recalcPersonalLoan()" class="w-full" />
+                  </div>
+                </div>
+                <div class="lg:col-span-5 bg-brand-navy text-white rounded-3xl p-7 space-y-4">
+                  <span class="px-3 py-1 rounded-full bg-brand-green/20 text-emerald-300 text-xs font-bold">Illustrative 8.99% APR*</span>
+                  <div>
+                    <p class="text-xs text-slate-300 uppercase">Estimated Monthly Payment</p>
+                    <p id="loan-mo-out" class="font-display font-extrabold text-4xl text-white mt-1">$572<span class="text-base font-normal text-slate-300">/mo</span></p>
+                  </div>
+                  <p class="text-xs text-slate-300">$0 origination fee • $0 prepayment penalty • Soft credit check only</p>
+                  <button onclick="startApplicationWithProduct('Verdant Flex Personal Loan')" class="w-full py-3.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm transition">
+                    Check My Rate
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          ${renderComparisonSection(false)}
+        </div>
+      `;
+    }
+
+    function recalcPersonalLoan() {
+      const amtEl = document.getElementById('loan-amt-slider');
+      if (!amtEl) return;
+      const P = Number(amtEl.value);
+      const n = Number(document.getElementById('loan-term-slider').value);
+      const r = 0.0899 / 12;
+      const monthly = Math.round(P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+      document.getElementById('loan-amt-label').textContent = '$' + P.toLocaleString();
+      document.getElementById('loan-term-label').textContent = `${n} Months (${n / 12} Years)`;
+      document.getElementById('loan-mo-out').innerHTML = `$${monthly.toLocaleString()}<span class="text-base font-normal text-slate-300">/mo</span>`;
+    }
+
+    // --- PAGE 5: BRANCH & ATM LOCATOR ---
+    function renderLocationsView() {
+      return `
+        <div class="view-section py-12 sm:py-16 bg-brand-grayBg min-h-[75vh]">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-10">
+              <span class="inline-block px-3.5 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold uppercase tracking-wider mb-3">Branch & ATM Network</span>
+              <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-navy tracking-tight">Find a Verdant Branch, Mortgage Hub, or 24/7 ATM</h1>
+              <p class="text-brand-slate mt-3 text-base">
+                Search by ZIP code, city, or street address. Click any location card or map pin to view hours, available specialists, and instant turn-by-turn directions.
+              </p>
+            </div>
+            ${renderLocatorWidget()}
+          </div>
+        </div>
+      `;
+    }
+
+    // --- PAGE 6: FINANCIAL EDUCATION ---
+    function renderEducationView() {
+      const q = appState.educationSearch.trim().toLowerCase();
+      const filtered = EDUCATION_ARTICLES.filter(a => {
+        const matchesCat = appState.educationCategory === 'All' || a.category === appState.educationCategory;
+        const matchesQ = !q || a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q);
+        return matchesCat && matchesQ;
+      });
+
+      return `
+        <div class="view-section py-12 sm:py-16 bg-white">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+              <div class="max-w-2xl">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold uppercase tracking-wider mb-3">Financial Education Center</span>
+                <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-navy tracking-tight">Actionable guides for every financial milestone</h1>
+                <p class="text-brand-slate mt-3 text-base">Clear, jargon-free articles on homebuying, credit building, debt payoff, and high-yield saving.</p>
+              </div>
+              <div class="w-full lg:w-80">
+                <input type="text" value="${appState.educationSearch}" oninput="updateEduSearch(this.value)" placeholder="Search articles & topics..." class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-green outline-none text-sm" />
+              </div>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="flex flex-wrap items-center gap-2 mb-10">
+              ${['All', 'Mortgages & Home', 'Credit & Loans', 'Banking & Savings', 'Financial Planning'].map(cat => `
+                <button onclick="setHomeEduCategory('${cat}')" class="px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition ${appState.educationCategory === cat ? 'bg-brand-green text-white shadow-sm' : 'bg-brand-grayBg text-brand-navy hover:bg-brand-mint'}">
+                  ${cat}
+                </button>
+              `).join('')}
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              ${filtered.map(art => `
+                <article onclick="openArticleModal(${art.id})" class="group cursor-pointer bg-white rounded-3xl border border-brand-border shadow-card hover:shadow-card-hover overflow-hidden flex flex-col sm:flex-row transition">
+                  <div class="sm:w-2/5 h-52 sm:h-auto overflow-hidden bg-brand-mint shrink-0">
+                    <img src="${art.image}" alt="${art.title}" onerror="this.src='https://placehold.co/600x500/EBF8F2/0F2537?text=Article'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                  </div>
+                  <div class="p-6 flex flex-col justify-between">
+                    <div>
+                      <div class="flex items-center gap-2 text-xs font-bold text-brand-greenDark mb-2">
+                        <span>${art.category}</span>
+                        <span>•</span>
+                        <span class="text-brand-slate font-medium">${art.readTime}</span>
+                      </div>
+                      <h3 class="font-display font-bold text-xl text-brand-navy group-hover:text-brand-green transition mb-2">${art.title}</h3>
+                      <p class="text-sm text-brand-slate leading-relaxed">${art.excerpt}</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-brand-border flex items-center justify-between">
+                      <span class="text-xs text-brand-slate">${art.date}</span>
+                      <span class="text-xs font-bold text-brand-green">Read Full Guide →</span>
+                    </div>
+                  </div>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function updateEduSearch(val) {
+      appState.educationSearch = val;
+      renderCurrentView();
+    }
+
+    // --- PAGE 7: SECURE CUSTOMER ONBOARDING ---
+    function renderOnboardingView() {
+      const step = appState.onboardingStep;
+      const d = appState.onboardingData;
+      const stepsMeta = [
+        { num: 1, label: 'Account Selection' },
+        { num: 2, label: 'Personal Details' },
+        { num: 3, label: 'Identity Check' },
+        { num: 4, label: 'Document Upload' },
+        { num: 5, label: 'Confirmation' }
+      ];
+
+      return `
+        <div class="view-section py-12 sm:py-16 bg-brand-grayBg min-h-[80vh]">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Security & Sandbox Banner -->
+            <div class="bg-brand-navy text-white rounded-2xl p-4 sm:px-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-xl bg-brand-green/20 text-brand-green flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                </span>
+                <p class="text-xs text-slate-200">
+                  <strong class="text-white">Simulated Onboarding Environment:</strong> Use demo details only. Do not enter real SSNs or sensitive banking credentials.
+                </p>
+              </div>
+              ${step < 5 ? `
+                <button type="button" onclick="fillDemoOnboardingData()" class="shrink-0 px-3.5 py-1.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white text-xs font-bold transition">
+                  Auto-Fill Demo Data
+                </button>
+              ` : ''}
+            </div>
+
+            <!-- Progress Stepper -->
+            <div class="bg-white rounded-3xl p-5 sm:p-6 border border-brand-border shadow-card mb-6">
+              <div class="flex items-center justify-between gap-2">
+                ${stepsMeta.map(s => {
+                  const active = s.num === step;
+                  const done = s.num < step;
+                  return `
+                    <div class="flex-1 flex flex-col items-center text-center">
+                      <div class="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold transition ${done ? 'bg-brand-green text-white' : active ? 'bg-brand-navy text-white ring-4 ring-brand-mint' : 'bg-brand-grayBg text-brand-slate border border-brand-border'}">
+                        ${done ? '✓' : s.num}
+                      </div>
+                      <span class="text-[11px] font-semibold mt-2 hidden sm:block ${active || done ? 'text-brand-navy' : 'text-brand-slate'}">${s.label}</span>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+              <div class="w-full h-2 rounded-full bg-brand-grayBg mt-4 overflow-hidden">
+                <div class="h-full bg-brand-green transition-all duration-300" style="width: ${(step / 5) * 100}%"></div>
+              </div>
+            </div>
+
+            <!-- Step Container -->
+            <div class="bg-white rounded-3xl p-6 sm:p-10 border border-brand-border shadow-card">
+              ${step === 1 ? `
+                <div class="space-y-6">
+                  <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-greenDark">Step 1 of 5</span>
+                    <h1 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-navy mt-1">Choose your account or lending product</h1>
+                    <p class="text-sm text-brand-slate mt-1">Select the financial product you would like to open or pre-qualify for today.</p>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    ${[
+                      'Verdant High-Yield Checking & Savings Bundle',
+                      '30-Year Fixed Mortgage Pre-Approval',
+                      'Verdant Flex Personal Loan',
+                      'Home Equity Line of Credit (HELOC)'
+                    ].map(opt => `
+                      <label onclick="selectOnboardingProduct('${opt}')" class="p-4 rounded-2xl border-2 cursor-pointer transition flex items-start gap-3 ${d.productType === opt ? 'border-brand-green bg-brand-mint/40' : 'border-brand-border hover:border-brand-green/50'}">
+                        <input type="radio" name="prodOpt" ${d.productType === opt ? 'checked' : ''} class="mt-1 text-brand-green focus:ring-brand-green" />
+                        <div>
+                          <span class="font-display font-bold text-sm text-brand-navy block">${opt}</span>
+                          <span class="text-xs text-brand-slate">Soft credit check • $0 application fee</span>
+                        </div>
+                      </label>
+                    `).join('')}
+                  </div>
+                  <div class="pt-4 flex justify-end">
+                    <button onclick="nextOnboardingStep(2)" class="px-7 py-3.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm transition">
+                      Continue to Personal Info →
+                    </button>
+                  </div>
+                </div>
+              ` : ''}
+
+              ${step === 2 ? `
+                <form onsubmit="submitStep2(event)" class="space-y-5">
+                  <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-greenDark">Step 2 of 5</span>
+                    <h2 class="font-display font-extrabold text-2xl text-brand-navy mt-1">Applicant Personal Information</h2>
+                    <p class="text-sm text-brand-slate mt-1">Please use sample/demo contact information.</p>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-xs font-bold uppercase text-brand-navy mb-1">First Name *</label>
+                      <input type="text" id="ob-first" required value="${d.firstName}" placeholder="Shawn" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-green outline-none text-sm" />
+                    </div>
+                    <div>
+                      <label class="block text-xs font-bold uppercase text-brand-navy mb-1">Last Name *</label>
+                      <input type="text" id="ob-last" required value="${d.lastName}" placeholder="Stotler" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-green outline-none text-sm" />
+                    </div>
+                    <div>
+                      <label class="block text-xs font-bold uppercase text-brand-navy mb-1">Email Address *</label>
+                      <input type="email" id="ob-email" required value="${d.email}" placeholder="shawn.stotler@example.com" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-green outline-none text-sm" />
+                    </div>
+                    <div>
+                      <label class="block text-xs font-bold uppercase text-brand-navy mb-1">Mobile Phone *</label>
+                      <input type="tel" id="ob-phone" required value="${d.phone}" placeholder="(555) 234-5678" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-green outline-none text-sm" />
+                    </div>
+                    <div class="sm:col-span-2">
+                      <label class="block text-xs font-bold uppercase text-brand-navy mb-1">Residential Street Address *</label>
+                      <input type="text" id="ob-addr" required value="${d.address}" placeholder="742 Evergreen Terrace" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-green outline-none text-sm" />
+                    </div>
+                    <div>
+                      <label class="block text-xs font-bold uppercase text-brand-navy mb-1">City, State & ZIP *</label>
+                      <input type="text" id="ob-city" required value="${d.cityStateZip}" placeholder="San Francisco, CA 94105" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-green outline-none text-sm" />
+                    </div>
+                    <div>
+                      <label class="block text-xs font-bold uppercase text-brand-navy mb-1">Annual Household Income (Est.)</label>
+                      <input type="text" id="ob-income" value="${d.annualIncome}" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-green outline-none text-sm" />
+                    </div>
+                  </div>
+                  <div class="pt-4 flex items-center justify-between">
+                    <button type="button" onclick="nextOnboardingStep(1)" class="px-5 py-3 rounded-xl border border-brand-border text-brand-navy font-semibold text-sm">← Back</button>
+                    <button type="submit" class="px-7 py-3.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm transition">Continue to Verification →</button>
+                  </div>
+                </form>
+              ` : ''}
+
+              ${step === 3 ? `
+                <div class="space-y-6">
+                  <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-greenDark">Step 3 of 5</span>
+                    <h2 class="font-display font-extrabold text-2xl text-brand-navy mt-1">Simulated Identity Verification</h2>
+                    <p class="text-sm text-brand-slate mt-1">Federal regulations require banks to verify applicant identity. Click below to run a simulated instant KYC check.</p>
+                  </div>
+
+                  <div class="p-6 rounded-2xl bg-brand-grayBg border border-brand-border space-y-4">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <p class="font-bold text-sm text-brand-navy">Applicant: ${d.firstName || 'Shawn'} ${d.lastName || 'Stotler'}</p>
+                        <p class="text-xs text-brand-slate">Selected Product: ${d.productType}</p>
+                      </div>
+                      <span class="px-3 py-1 rounded-full text-xs font-bold ${d.idVerified ? 'bg-brand-mint text-brand-greenDark' : 'bg-amber-100 text-amber-800'}">
+                        ${d.idVerified ? '✓ Identity Verified' : 'Pending Check'}
+                      </span>
+                    </div>
+
+                    ${!d.idVerified ? `
+                      <button type="button" onclick="simulateIdCheck()" class="w-full py-3.5 rounded-xl bg-brand-navy hover:bg-brand-navyLight text-white font-semibold text-sm transition">
+                        Run Simulated Instant Identity Verification
+                      </button>
+                    ` : `
+                      <div class="p-4 rounded-xl bg-brand-mint text-brand-navy text-xs font-medium flex items-center gap-2">
+                        <span class="text-brand-green font-bold text-base">✓</span>
+                        <span>Simulated KYC & Soft Credit Check passed with zero credit score impact.</span>
+                      </div>
+                    `}
+                  </div>
+
+                  <div class="pt-4 flex items-center justify-between">
+                    <button type="button" onclick="nextOnboardingStep(2)" class="px-5 py-3 rounded-xl border border-brand-border text-brand-navy font-semibold text-sm">← Back</button>
+                    <button type="button" onclick="nextOnboardingStep(4)" class="px-7 py-3.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm transition">Continue to Documents →</button>
+                  </div>
+                </div>
+              ` : ''}
+
+              ${step === 4 ? `
+                <div class="space-y-6">
+                  <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-greenDark">Step 4 of 5</span>
+                    <h2 class="font-display font-extrabold text-2xl text-brand-navy mt-1">Supporting Document Upload</h2>
+                    <p class="text-sm text-brand-slate mt-1">Simulate uploading a sample photo ID or income statement (no actual file leaves your browser).</p>
+                  </div>
+
+                  <div onclick="simulateDocUpload()" class="border-2 border-dashed ${d.docUploaded ? 'border-brand-green bg-brand-mint/40' : 'border-brand-border hover:border-brand-green bg-brand-grayBg/60'} rounded-3xl p-8 text-center cursor-pointer transition">
+                    <div class="w-12 h-12 rounded-2xl bg-white text-brand-green flex items-center justify-center mx-auto mb-3 shadow-sm">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                    </div>
+                    ${d.docUploaded ? `
+                      <p class="font-display font-bold text-base text-brand-navy">✓ Uploaded: ${d.docName}</p>
+                      <p class="text-xs text-brand-greenDark mt-1">Encrypted & attached to your application file (Simulated)</p>
+                    ` : `
+                      <p class="font-display font-bold text-base text-brand-navy">Click to Attach Sample Verification Document</p>
+                      <p class="text-xs text-brand-slate mt-1">Supports PDF, PNG, or JPG • Simulated instant upload</p>
+                    `}
+                  </div>
+
+                  <div class="p-4 rounded-2xl bg-brand-grayBg text-xs text-brand-slate leading-relaxed">
+                    <strong>Privacy & Security Notice:</strong> By submitting this demonstration application, you acknowledge that all terms, rates, and approvals are simulated for preview purposes.
+                  </div>
+
+                  <div class="pt-4 flex items-center justify-between">
+                    <button type="button" onclick="nextOnboardingStep(3)" class="px-5 py-3 rounded-xl border border-brand-border text-brand-navy font-semibold text-sm">← Back</button>
+                    <button type="button" onclick="completeOnboarding()" class="px-7 py-3.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm shadow-sm transition">
+                      Submit Application ✓
+                    </button>
+                  </div>
+                </div>
+              ` : ''}
+
+              ${step === 5 ? `
+                <div class="text-center py-6 space-y-5">
+                  <div class="w-16 h-16 rounded-full bg-brand-mint text-brand-green flex items-center justify-center mx-auto">
+                    <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="inline-block px-3.5 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold uppercase tracking-wider">Application Confirmed</span>
+                  <h2 class="font-display font-extrabold text-3xl text-brand-navy">Welcome to Verdant Financial, ${d.firstName || 'Shawn'}!</h2>
+                  <p class="text-brand-slate text-sm max-w-lg mx-auto leading-relaxed">
+                    Your simulated application for <strong>${d.productType}</strong> has been approved. Reference ID: <strong class="text-brand-navy">#VRD-2026-8841</strong>.
+                  </p>
+                  <div class="max-w-md mx-auto p-4 rounded-2xl bg-brand-grayBg border border-brand-border text-left text-xs space-y-1.5">
+                    <div class="flex justify-between"><span class="text-brand-slate">Applicant:</span><span class="font-bold text-brand-navy">${d.firstName || 'Shawn'} ${d.lastName || 'Stotler'}</span></div>
+                    <div class="flex justify-between"><span class="text-brand-slate">Product:</span><span class="font-bold text-brand-navy">${d.productType}</span></div>
+                    <div class="flex justify-between"><span class="text-brand-slate">Status:</span><span class="font-bold text-brand-green">Active / Ready</span></div>
+                  </div>
+                  <div class="pt-4 flex flex-wrap justify-center gap-3">
+                    <button onclick="navigateTo('home')" class="px-6 py-3 rounded-xl bg-brand-navy text-white font-semibold text-sm">Return to Homepage</button>
+                    <button onclick="resetOnboarding()" class="px-6 py-3 rounded-xl border border-brand-border text-brand-navy font-semibold text-sm hover:bg-brand-grayBg">Start Another Demo</button>
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function fillDemoOnboardingData() {
+      appState.onboardingData = {
+        ...appState.onboardingData,
+        firstName: 'Shawn',
+        lastName: 'Stotler',
+        email: 'shawn.stotler@example.com',
+        phone: '(415) 555-0199',
+        address: '450 Market Street, Apt 12B',
+        cityStateZip: 'San Francisco, CA 94105',
+        annualIncome: '$115,000',
+        idVerified: true,
+        docUploaded: true,
+        docName: 'Sample_State_ID_Verified.pdf'
+      };
+      renderCurrentView();
+      showToast('Demo applicant details populated.');
+    }
+
+    function selectOnboardingProduct(prod) {
+      appState.onboardingData.productType = prod;
+      renderCurrentView();
+    }
+
+    function nextOnboardingStep(step) {
+      appState.onboardingStep = step;
+      renderCurrentView();
+    }
+
+    function submitStep2(e) {
+      e.preventDefault();
+      appState.onboardingData.firstName = document.getElementById('ob-first').value;
+      appState.onboardingData.lastName = document.getElementById('ob-last').value;
+      appState.onboardingData.email = document.getElementById('ob-email').value;
+      appState.onboardingData.phone = document.getElementById('ob-phone').value;
+      appState.onboardingData.address = document.getElementById('ob-addr').value;
+      appState.onboardingData.cityStateZip = document.getElementById('ob-city').value;
+      appState.onboardingData.annualIncome = document.getElementById('ob-income').value;
+      nextOnboardingStep(3);
+    }
+
+    function simulateIdCheck() {
+      appState.onboardingData.idVerified = true;
+      renderCurrentView();
+      showToast('Simulated identity check passed!');
+    }
+
+    function simulateDocUpload() {
+      appState.onboardingData.docUploaded = true;
+      appState.onboardingData.docName = 'Sample_Verification_Document.pdf';
+      renderCurrentView();
+      showToast('Sample document attached.');
+    }
+
+    function completeOnboarding() {
+      appState.onboardingStep = 5;
+      renderCurrentView();
+      showToast('Application submitted successfully!');
+    }
+
+    function resetOnboarding() {
+      appState.onboardingStep = 1;
+      appState.onboardingData.idVerified = false;
+      appState.onboardingData.docUploaded = false;
+      renderCurrentView();
+    }
+
+    // --- PAGE 8: CUSTOMER SUPPORT ---
+    function renderSupportView() {
+      return `
+        <div class="view-section py-12 sm:py-16 bg-white">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+              <span class="inline-block px-3.5 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold uppercase tracking-wider mb-3">24/7 Member Assistance</span>
+              <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-navy tracking-tight">How can we help you today?</h1>
+              <p class="text-brand-slate mt-3 text-base">Connect with a banking or mortgage specialist, browse instant answers, or report a lost card anytime.</p>
+            </div>
+
+            <!-- Contact Channels -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+              <div class="p-6 rounded-3xl bg-brand-grayBg border border-brand-border space-y-3">
+                <span class="inline-block px-3 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold">Live 24/7</span>
+                <h3 class="font-display font-bold text-xl text-brand-navy">Call Member Support</h3>
+                <p class="text-sm text-brand-slate">Speak directly with a U.S.-based specialist for accounts, loans, or urgent card help.</p>
+                <p class="font-display font-extrabold text-lg text-brand-green">1-800-555-0194</p>
+              </div>
+              <div class="p-6 rounded-3xl bg-brand-grayBg border border-brand-border space-y-3">
+                <span class="inline-block px-3 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold">Avg. Wait &lt; 1 Min</span>
+                <h3 class="font-display font-bold text-xl text-brand-navy">Interactive Virtual Assistant</h3>
+                <p class="text-sm text-brand-slate">Get instant help with routing numbers, wire instructions, or mortgage documents.</p>
+                <button onclick="showToast('Connected to Verdant Virtual Support Specialist!')" class="px-4 py-2.5 rounded-xl bg-brand-green text-white text-xs font-semibold">Start Live Chat</button>
+              </div>
+              <div class="p-6 rounded-3xl bg-brand-grayBg border border-brand-border space-y-3">
+                <span class="inline-block px-3 py-1 rounded-full bg-brand-mint text-brand-greenDark text-xs font-bold">In-Person Advice</span>
+                <h3 class="font-display font-bold text-xl text-brand-navy">Schedule a Branch Visit</h3>
+                <p class="text-sm text-brand-slate">Meet face-to-face with a mortgage or personal banking advisor near you.</p>
+                <button onclick="navigateTo('locations')" class="px-4 py-2.5 rounded-xl bg-brand-navy text-white text-xs font-semibold">Find a Branch</button>
+              </div>
+            </div>
+
+            <!-- Interactive FAQ Accordion & Contact Form -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+              <div class="lg:col-span-7 space-y-4">
+                <h2 class="font-display font-extrabold text-2xl text-brand-navy mb-4">Frequently Asked Questions</h2>
+                ${FAQS.map((item, idx) => `
+                  <details class="group bg-brand-grayBg rounded-2xl border border-brand-border p-5" ${idx === 0 ? 'open' : ''}>
+                    <summary class="font-display font-bold text-base text-brand-navy cursor-pointer list-none flex items-center justify-between gap-4">
+                      <span>${item.q}</span>
+                      <span class="text-brand-green font-extrabold text-xl group-open:rotate-45 transition-transform">+</span>
+                    </summary>
+                    <p class="text-sm text-brand-slate leading-relaxed mt-3 pt-3 border-t border-brand-border/70">${item.a}</p>
+                  </details>
+                `).join('')}
+              </div>
+
+              <div class="lg:col-span-5">
+                <form onsubmit="handleSupportMessage(event)" class="bg-brand-navy text-white rounded-3xl p-7 shadow-xl space-y-4">
+                  <h3 class="font-display font-bold text-xl">Send a Secure Message</h3>
+                  <p class="text-xs text-slate-300">Have a question about mortgages, personal loans, or digital banking? Our team responds within 2 business hours.</p>
+                  <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Full Name</label>
+                    <input type="text" required placeholder="Shawn Stotler" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-slate-400 text-sm outline-none focus:border-brand-green" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Topic</label>
+                    <select class="w-full px-4 py-3 rounded-xl bg-brand-navyLight border border-white/15 text-white text-sm outline-none">
+                      <option>Checking & High-Yield Savings</option>
+                      <option>Mortgage Pre-Approval & Refinance</option>
+                      <option>Personal Loans & HELOC</option>
+                      <option>Security & Account Access</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Message</label>
+                    <textarea rows="3" required placeholder="How can our financial team assist you?" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-slate-400 text-sm outline-none focus:border-brand-green"></textarea>
+                  </div>
+                  <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-green hover:bg-brand-greenDark text-white font-semibold text-sm transition">
+                    Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function handleSupportMessage(e) {
+      e.preventDefault();
+      e.target.reset();
+      showToast('Message received! A Verdant specialist will follow up shortly.');
+    }
+
+    // ==========================================
+    // 5. MAIN RENDER CONTROLLER & INIT
+    // ==========================================
+    function renderCurrentView() {
+      const root = document.getElementById('app-root');
+      switch (appState.currentView) {
+        case 'banking':
+          root.innerHTML = renderBankingView();
+          recalcSavings();
+          break;
+        case 'mortgages':
+          root.innerHTML = renderMortgagesView();
+          recalcMortgage();
+          break;
+        case 'lending':
+          root.innerHTML = renderLendingView();
+          recalcPersonalLoan();
+          break;
+        case 'locations':
+          root.innerHTML = renderLocationsView();
+          break;
+        case 'education':
+          root.innerHTML = renderEducationView();
+          break;
+        case 'onboarding':
+          root.innerHTML = renderOnboardingView();
+          break;
+        case 'support':
+          root.innerHTML = renderSupportView();
+          break;
+        case 'home':
+        default:
+          root.innerHTML = renderHomeView();
+          break;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCurrentView();
+    });
+  </script>
+</body>
+</html>
